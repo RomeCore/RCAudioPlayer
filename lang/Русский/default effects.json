@@ -1,0 +1,28 @@
+{
+	"volume": "Громкость",
+	"volume_factor": "Фактор",
+	
+	"delay": "Задержка",
+	"delay_delay": "Задержка (семплы)",
+	"delay_main_factor": "Основной фактор",
+	"delay_sub_factor": "Вторичный фактор",
+	
+	"echo": "Эхо",
+	"echo_delay": "Задержка (секунды)",
+	"echo_feedback": "Фактор возврата",
+	"echo_wetdrymix": "Микс влажности/сухости",
+	
+	"equalizer": "Эквалайзер",
+	
+	"reverb": "Реверберация",
+	"reverb_damp": "Влажность",
+	"reverb_decay": "Угасание",
+	"reverb_comb_count": "Кол-во Comb фильтров",
+	"reverb_allpass_count": "Кол-во AllPass фильтров",
+	
+	"low_pass": "Верхняя граница частоты",
+	"lowpass_frequency": "Частота",
+	
+	"high_pass": "Нижняя граница частоты",
+	"highpass_frequency": "Частота",
+}

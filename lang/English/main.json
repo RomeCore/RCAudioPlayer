@@ -1,0 +1,64 @@
+{
+	"enable": "Enable",
+
+	"ok": "Ok",
+	"apply": "Apply",
+	"cancel": "Cancel",
+	"yes": "Yes",
+	"no": "No",
+	"add": "Add",
+	"add.": "Add...",
+	"rename": "Rename",
+	"create": "Create",
+	"create.": "Create...",
+	"delete": "Delete",
+	"reset": "Reset",
+	"edit": "Edit",
+
+	"players": "Players",
+	"show_player": "Show player",
+	"add_player": "Add player",
+	"type:": "Type:",
+
+	"add_pipeline": "Add pipeline",
+	"name:": "Name:",
+	"based_on:": "Based on:",
+
+	"visualizer:": "Visualizer:",
+	"steps:": "Steps:",
+
+	"message": "Message",
+	"login": "Login",
+	"password": "Password",
+	"authorise": "Authorise",
+
+	"hotkey_alert_header": "Hotkeys already registered!",
+	"hotkey_alert": "Hotkeys will not work for this player!",
+
+	"remove_sure_header": "Remove?",
+	"remove_sure_frag": "Are you sure to remove",
+
+	"reset_sure_header": "Reset?",
+	"reset_sure": "Are you sure to reset this pipeline element?",
+
+	"add_files.": "Add files...",
+	"add_clipboard": "Add from clipboard",
+	"remove_selected": "Remove selected",
+
+	"generic_edit_title": "Editing...",
+	"generic_edit_label": "File contents:",
+
+	"settings": "Settings",
+	"exception_msg": "Exception was raised!",
+
+	"language": "Language",
+
+	"theme": "Theme",
+	"theme:": "Theme:",
+	"primary_color": "Primary color",
+	"secondary_color": "Secondary color",
+	"theme_dark": "Dark",
+	"theme_light": "Light"
+
+
+}
