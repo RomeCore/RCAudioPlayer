@@ -1,0 +1,46 @@
+﻿<mng:ManagerControl x:Class="RCAudioPlayer.WPF.Management.PlayerManagerControl"
+			        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			        xmlns:local="clr-namespace:RCAudioPlayer.WPF"
+			        xmlns:t="clr-namespace:RCAudioPlayer.WPF.Translation"
+			        xmlns:mng="clr-namespace:RCAudioPlayer.WPF.Management"
+			        xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+			        mc:Ignorable="d" 
+			        d:DesignHeight="700" d:DesignWidth="400">
+	<Grid>
+		
+		<ContentControl x:Name="listPanel" Visibility="Visible">
+            <DockPanel>
+
+                <ListBoxItem HorizontalContentAlignment="Stretch" DockPanel.Dock="Top">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{t:Translate players}" Grid.Column="0" VerticalAlignment="Center"/>
+
+                        <Button x:Name="showPlayerButton" Grid.Column="1" ToolTip="{t:Translate show_player}" Margin="3 0" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
+                            <icons:PackIconMaterial Kind="ArrangeSendBackward"/>
+                        </Button>
+
+                        <Button x:Name="addButton" Grid.Column="2" ToolTip="{t:Translate create.}" Margin="3 0 0 0" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
+                            <icons:PackIconMaterial Kind="Plus"/>
+                        </Button>
+
+                    </Grid>
+                </ListBoxItem>
+                <GridSplitter Height="3" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Stretch" DockPanel.Dock="Top"/>
+                <ListBox x:Name="playerList" HorizontalContentAlignment="Stretch" DockPanel.Dock="Bottom"/>
+				
+			</DockPanel>
+		</ContentControl>
+
+		<ContentControl x:Name="playerPanel" Visibility="Collapsed"/>
+
+	</Grid>
+</mng:ManagerControl>

@@ -1,0 +1,42 @@
+﻿<mng:ManagerControl x:Class="RCAudioPlayer.WPF.Management.PipelineManagerControl"
+					xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+					xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+					xmlns:local="clr-namespace:RCAudioPlayer.WPF"
+					xmlns:t="clr-namespace:RCAudioPlayer.WPF.Translation"
+					xmlns:mng="clr-namespace:RCAudioPlayer.WPF.Management"
+					xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+					xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+					mc:Ignorable="d" 
+					d:DesignHeight="700" d:DesignWidth="400">
+	<DockPanel LastChildFill="True">
+
+		<ListBoxItem DockPanel.Dock="Top" HorizontalContentAlignment="Stretch">
+			<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <CheckBox x:Name="enabler" Content="{t:Translate enable}" Margin="5 0" VerticalAlignment="Center"/>
+
+				<ComboBox x:Name="effectChainSelector" Grid.Column="1" MinWidth="50" Margin="5 0" md:TextFieldAssist.HasClearButton="True"/>
+
+				<Button x:Name="addButton" Margin="3 0" Grid.Column="2" ToolTip="{t:Translate create.}" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
+					<icons:PackIconMaterial Kind="Plus"/>
+				</Button>
+
+				<Button x:Name="deleteButton" Margin="3 0 0 0" Grid.Column="3" ToolTip="{t:Translate delete}" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
+					<icons:PackIconMaterial Kind="DeleteOutline"/>
+				</Button>
+
+			</Grid>
+		</ListBoxItem>
+        <GridSplitter DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Center" IsEnabled="False" Height="3"/>
+        <ContentControl x:Name="pipelineHolder" DockPanel.Dock="Bottom"/>
+
+    </DockPanel>
+</mng:ManagerControl>
