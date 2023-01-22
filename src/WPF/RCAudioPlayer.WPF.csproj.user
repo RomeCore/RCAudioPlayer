@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Dialogs\AddPipelineDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\AddPlayerDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\ColorDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\MessageDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Files\SettingsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pipeline\EffectChainControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Management\PipelineManagerControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Effects\EffectWrapper.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pipeline\PipelineControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pipeline\PipelineElementWrapper.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Playables\GenericPlayableControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Playables\PlayableWrapper.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Playables\Sub\GenericPlayableSubControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Playables\Main\TrackControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Management\PlaybackPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Players\PlayerListItem.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Management\PlayerManagerControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Players\Editors\GenericEditorDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\QuestionDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\RenameDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pipeline\SoundTouchControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Management\VisualizerManagerControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Players\Sub\ElementPlayerSubControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Players\Sub\ListPlayerSubControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Players\Sub\PlaybackPanelSubControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Dialogs\AddPipelineDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\AddPlayerDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\ColorDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\MessageDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Files\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pipeline\EffectChainControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Management\PipelineManagerControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Effects\EffectWrapper.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pipeline\PipelineControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pipeline\PipelineElementWrapper.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Playables\GenericPlayableControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Playables\PlayableWrapper.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Playables\Sub\GenericPlayableSubControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Playables\Main\TrackControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Management\PlaybackPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Playables\Sub\TrackSubControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Players\PlayerListItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Management\PlayerManagerControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Players\Editors\GenericEditorDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\QuestionDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\RenameDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pipeline\SoundTouchControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Management\VisualizerManagerControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Players\Sub\ElementPlayerSubControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Players\Sub\ListPlayerSubControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Players\Sub\PlaybackPanelSubControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
