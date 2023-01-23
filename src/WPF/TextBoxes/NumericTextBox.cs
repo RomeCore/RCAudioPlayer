@@ -19,11 +19,11 @@ namespace RCAudioPlayer.WPF.TextBoxes
 			return false;
 		}
 
-        protected override void OnTextChanged(TextChangedEventArgs e)
-        {
+		protected override void OnTextChanged(TextChangedEventArgs e)
+		{
 			if (string.IsNullOrEmpty(Text))
 				Text = "0";
-            base.OnTextChanged(e);
-        }
-    }
+			base.OnTextChanged(e);
+		}
+	}
 }

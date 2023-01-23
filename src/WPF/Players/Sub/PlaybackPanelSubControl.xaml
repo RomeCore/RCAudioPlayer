@@ -10,10 +10,10 @@
 			 d:DesignHeight="70" d:DesignWidth="300">
 	<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-        <Label x:Name="lengthLabel" VerticalAlignment="Center" Margin="3"/>
+		<Label x:Name="lengthLabel" VerticalAlignment="Center" Margin="3"/>
 
-        <local:VolumeButton x:Name="volumeButton" Margin="5" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
-                            md:ButtonProgressAssist.IsIndicatorVisible="True">
+		<local:VolumeButton x:Name="volumeButton" Margin="5" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}"
+							md:ButtonProgressAssist.IsIndicatorVisible="True">
 			<icons:Material Kind="VolumeHigh"/>
 		</local:VolumeButton>
 		

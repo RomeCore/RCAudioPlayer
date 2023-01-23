@@ -2,12 +2,13 @@
 using System.Windows.Input;
 using MahApps.Metro.IconPacks;
 using NHotkey.Wpf;
+using RCAudioPlayer.Core.Playables;
 using RCAudioPlayer.Core.Players;
 using RCAudioPlayer.WPF.Playables;
 
 namespace RCAudioPlayer.WPF.Players.Sub
 {
-    [PlayerSubControl(typeof(ListPlayer))]
+	[PlayerSubControl(typeof(ListPlayer))]
 	public partial class ListPlayerSubControl
 	{
 		private static bool shuffle;
@@ -24,10 +25,10 @@ namespace RCAudioPlayer.WPF.Players.Sub
 		static ListPlayerSubControl()
 		{
 			shuffle = Files.State.Get("shuffle", false);
-            repeat = Files.State.Get("repeat", false);
-        }
+			repeat = Files.State.Get("repeat", false);
+		}
 
-        public ListPlayerSubControl(ListPlayer listPlayer) : base(listPlayer)
+		public ListPlayerSubControl(ListPlayer listPlayer) : base(listPlayer)
 		{
 			InitializeComponent();
 			subHolder.Content = new PlaybackPanelSubControl(listPlayer.Master);
@@ -43,11 +44,11 @@ namespace RCAudioPlayer.WPF.Players.Sub
 			prevButton.Click += (s, e) => prevTrack();
 			nextButton.Click += (s, e) => nextTrack();
 
-            MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(PackIconMaterialKind.Rewind.GetTaskbarButton(prevTrack));
-            MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(PackIconMaterialKind.PlayPause.GetTaskbarButton(playPause));
-            MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(PackIconMaterialKind.FastForward.GetTaskbarButton(nextTrack));
+			MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(Utils.GetTaskbarButton(PackIconMaterialKind.Rewind, prevTrack));
+			MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(Utils.GetTaskbarButton(PackIconMaterialKind.PlayPause, playPause));
+			MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(Utils.GetTaskbarButton(PackIconMaterialKind.FastForward, nextTrack));
 
-            shuffleButton.IsChecked = listPlayer.Shuffle = shuffle;
+			shuffleButton.IsChecked = listPlayer.Shuffle = shuffle;
 			shuffleButton.Click += (s, e) => shuffleList(shuffleButton.IsChecked ?? false);
 			repeatButton.IsChecked = listPlayer.Loop = repeat;
 			repeatButton.Click += (s, e) => repeatTrack(repeatButton.IsChecked ?? false);

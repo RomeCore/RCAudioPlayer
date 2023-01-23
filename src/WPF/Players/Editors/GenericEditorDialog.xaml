@@ -1,37 +1,37 @@
 ﻿<local:PlayerEditorDialog x:Class="RCAudioPlayer.WPF.Players.Editors.GenericEditorDialog"
-                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                          xmlns:local="clr-namespace:RCAudioPlayer.WPF.Players.Editors"
-			              xmlns:t="clr-namespace:RCAudioPlayer.WPF.Translation"
-                          mc:Ignorable="d"
-                          FontSize="20"
-                          ShowButtons="False"
-                          ResizeMode="NoResize"
-		                  SizeToContent="WidthAndHeight"
-		                  Title="{t:Translate generic_edit_title}">
-    <DockPanel>
+						  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+						  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+						  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+						  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+						  xmlns:local="clr-namespace:RCAudioPlayer.WPF.Players.Editors"
+						  xmlns:t="clr-namespace:RCAudioPlayer.WPF.Translation"
+						  mc:Ignorable="d"
+						  FontSize="20"
+						  ShowButtons="False"
+						  ResizeMode="NoResize"
+						  SizeToContent="WidthAndHeight"
+						  Title="{t:Translate generic_edit_title}">
+	<DockPanel>
 
-        <Grid HorizontalAlignment="Center" DockPanel.Dock="Bottom">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
+		<Grid HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+			</Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Click="OkButton_Click" Content="{t:Translate ok}" Margin="3"/>
+			<Button Grid.Column="0" Click="OkButton_Click" Content="{t:Translate ok}" Margin="3"/>
 
-            <Button Grid.Column="1" Click="CancelButton_Click" Content="{t:Translate cancel}" Margin="3"/>
+			<Button Grid.Column="1" Click="CancelButton_Click" Content="{t:Translate cancel}" Margin="3"/>
 
-        </Grid>
+		</Grid>
 
-        <DockPanel DockPanel.Dock="Top">
+		<DockPanel DockPanel.Dock="Top">
 
-            <Label DockPanel.Dock="Left" Content="{t:Translate generic_edit_label}"/>
+			<Label DockPanel.Dock="Left" Content="{t:Translate generic_edit_label}"/>
 
-            <TextBox x:Name="textEditor" Margin="5" DockPanel.Dock="Right" MinWidth="120"/>
+			<TextBox x:Name="textEditor" Margin="5" DockPanel.Dock="Right" MinWidth="120"/>
 
-        </DockPanel>
+		</DockPanel>
 
-    </DockPanel>
+	</DockPanel>
 </local:PlayerEditorDialog>

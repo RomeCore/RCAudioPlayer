@@ -50,10 +50,10 @@
 			<mng:PlayerManagerControl x:Name="playerManagerControl" Grid.Column="0"/>
 			<GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
 			<mng:VisualizerManagerControl x:Name="visualizerManagerControl" Grid.Column="2"/>
-            <GridSplitter Grid.Column="3" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
-            <mng:PipelineManagerControl x:Name="pipelineManagerControl" Grid.Column="4"/>
+			<GridSplitter Grid.Column="3" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+			<mng:PipelineManagerControl x:Name="pipelineManagerControl" Grid.Column="4"/>
 
-        </Grid>
+		</Grid>
 
 		<mng:PlaybackPanel x:Name="playbackPanel" Grid.Row="1"/>
 

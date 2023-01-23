@@ -13,7 +13,7 @@ namespace RCAudioPlayer.WPF.Players.Sub
 		}
 
 		public virtual void OnClose()
-        {
-        }
+		{
+		}
 	}
 }

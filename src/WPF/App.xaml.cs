@@ -121,7 +121,7 @@ namespace RCAudioPlayer.WPF
 		{
 			Core.Log.Exception(e.Exception);
 			var exc = e.Exception;
-			Dialogs.MessageDialog.Show($"Exception occured! Message: {exc.Message}\nStack trace: {exc.StackTrace}");
+			Dialogs.ExceptionDialog.Show(exc);
 		}
 
 		protected override void OnStartup(StartupEventArgs e)

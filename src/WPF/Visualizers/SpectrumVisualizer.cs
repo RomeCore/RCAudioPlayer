@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace RCAudioPlayer.WPF.Visualizers
 {
-    [VisualizerControl("Spectrum")]
+	[VisualizerControl("Spectrum")]
 	public class SpectrumVisualizer : VisualizerControl
 	{
 		public int TargetBars { get; set; }

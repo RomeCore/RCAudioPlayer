@@ -2,12 +2,13 @@
 using System.Windows.Input;
 using MahApps.Metro.IconPacks;
 using NHotkey.Wpf;
+using RCAudioPlayer.Core.Playables;
 using RCAudioPlayer.Core.Players;
 using RCAudioPlayer.WPF.Playables;
 
 namespace RCAudioPlayer.WPF.Players.Sub
 {
-    [PlayerSubControl(typeof(ElementPlayer))]
+	[PlayerSubControl(typeof(ElementPlayer))]
 	public partial class ElementPlayerSubControl
 	{
 		private readonly bool hotkeysRegistered;
@@ -29,11 +30,11 @@ namespace RCAudioPlayer.WPF.Players.Sub
 			prevButton.Click += (s, e) => prevTrack();
 			nextButton.Click += (s, e) => nextTrack();
 
-            MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(PackIconMaterialKind.Rewind.GetTaskbarButton(prevTrack));
-            MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(PackIconMaterialKind.PlayPause.GetTaskbarButton(playPause));
-            MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(PackIconMaterialKind.FastForward.GetTaskbarButton(nextTrack));
+			MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(Utils.GetTaskbarButton(PackIconMaterialKind.Rewind, prevTrack));
+			MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(Utils.GetTaskbarButton(PackIconMaterialKind.PlayPause, playPause));
+			MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Add(Utils.GetTaskbarButton(PackIconMaterialKind.FastForward, nextTrack));
 
-            elementPlayer.OnElementUpdate += ElementPlayer_OnElementUpdate;
+			elementPlayer.OnElementUpdate += ElementPlayer_OnElementUpdate;
 
 			try
 			{

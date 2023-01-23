@@ -11,8 +11,8 @@ namespace RCAudioPlayer.WPF.Players
 		public Action BackAction { get; set; } = () => { };
 
 		public PlayerControl(Player player)
-        {
+		{
 			Player = player;
-        }
+		}
 	}
 }

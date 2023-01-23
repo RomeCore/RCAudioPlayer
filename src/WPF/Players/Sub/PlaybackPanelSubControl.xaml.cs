@@ -4,7 +4,7 @@ using RCAudioPlayer.Core.Streams;
 
 namespace RCAudioPlayer.WPF.Players.Sub
 {
-    public partial class PlaybackPanelSubControl : UserControl
+	public partial class PlaybackPanelSubControl : UserControl
 	{
 		public PlayerMaster Master { get; }
 		public PipelineStream PipelineStream { get; }
@@ -19,7 +19,7 @@ namespace RCAudioPlayer.WPF.Players.Sub
 			PipelineStream.PositionChanged += PipelineStream_PositionChanged;
 
 			master.Output.Volume = Files.State.Get("volume", master.Output.Volume);
-            volumeButton.Volume = master.Output.Volume * 100;
+			volumeButton.Volume = master.Output.Volume * 100;
 			MaterialDesignThemes.Wpf.ButtonProgressAssist.SetValue(volumeButton, master.Output.Volume * 100);
 			volumeButton.VolumeChanged += VolumeButton_VolumeChanged;
 		}

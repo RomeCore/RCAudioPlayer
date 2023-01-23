@@ -45,5 +45,5 @@ namespace RCAudioPlayer.WPF
 				Dragged(this, EventArgs.Empty);
 			base.OnMouseMove(e);
 		}
-    }
+	}
 }

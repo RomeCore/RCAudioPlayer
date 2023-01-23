@@ -8,7 +8,7 @@ using RCAudioPlayer.Core.Streams;
 
 namespace RCAudioPlayer.WPF
 {
-    public class PipelineStreamSlider : Slider
+	public class PipelineStreamSlider : Slider
 	{
 		private PipelineStream? _pipelineStream;
 		private Track? _track;
@@ -60,7 +60,7 @@ namespace RCAudioPlayer.WPF
 		{
 			if (_pipelineStream != null && source is Thumb thumb && thumb.ToolTip is ToolTip toolTip)
 			{
-                var time = SampleConvert.TimeBytes((long)Value, _pipelineStream.InputWaveFormat);
+				var time = SampleConvert.TimeBytes((long)Value, _pipelineStream.InputWaveFormat);
 				toolTip.Content = time.ToStr();
 			}
 		}

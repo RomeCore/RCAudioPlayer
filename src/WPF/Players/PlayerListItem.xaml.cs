@@ -9,7 +9,8 @@ using RCAudioPlayer.WPF.Dialogs;
 
 namespace RCAudioPlayer.WPF
 {
-    public partial class PlayerListItem : UserControl
+	// That will be shown in players list
+	public partial class PlayerListItem : UserControl
 	{
 		public PlayerManagerControl PlayerManagerControl { get; }
 		public PlayerManager PlayerManager { get; }
@@ -29,6 +30,7 @@ namespace RCAudioPlayer.WPF
 				? System.Windows.Visibility.Visible : System.Windows.Visibility.Collapsed;
 		}
 
+		// This button loads player and opens player control (if it has it)
 		private async void SelectButton_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
 			var materialIcon = (PackIconMaterial)selectButton.Content;
@@ -42,19 +44,20 @@ namespace RCAudioPlayer.WPF
 			{
 				Log.Exception(exc, "while loading player");
 				materialIcon.Kind = PackIconMaterialKind.AlertCircleOutline;
-				MessageDialog.Show(exc);
+				ExceptionDialog.Show(exc);
 			}
 			ButtonProgressAssist.SetIsIndicatorVisible(selectButton, false);
 		}
 
+		// This button shows rename dialog to rename player
 		private void EditButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
+		{
 			var content = PlayerManager.ExtractContent(PlayerData.Name);
 			var dialog = PlayerControlDictionary.GetEditorFor(PlayerData.TypeData.Type, content);
 			dialog.ShowDialog();
 
 			if (dialog.Success)
 				PlayerManager.ChangeContent(PlayerData.Name, dialog.Result);
-        }
+		}
 	}
 }

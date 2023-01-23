@@ -8,61 +8,75 @@ using RCAudioPlayer.Core.Players;
 using RCAudioPlayer.WPF.Playables;
 using MahApps.Metro.IconPacks;
 using RCAudioPlayer.WPF.Translation;
+using RCAudioPlayer.Core.Playables;
 
 namespace RCAudioPlayer.WPF.Players.Main
 {
+	// Used to simplify making controls for list players
 	public abstract class ListPlayerControl : PlayerControl
 	{
 		public ListBox listBox;
-		public Button backButton;
-		public TextBlock playerNameText;
+		private Button backButton;
+		private TextBlock playerNameText;
 
 		public ListPlayer ListPlayer { get; }
 		public int Count => Playlist.Count;
 		public IReadOnlyList<IPlayable> Playlist => ListPlayer.Playlist;
 
+		// Used to add new buttons to header menu <priority, (icon kind, click event handler, tooltip?)>
 		protected virtual Dictionary<int, (PackIconMaterialKind, RoutedEventHandler, object?)>? Buttons { get; }
 
+		// Makes wrapper for playable element
 		protected virtual ListBoxItem MakeControl(IPlayable playable)
 		{
-			var wrapper = new PlayableWrapper(PlayableControlDictionary.GetFor(playable, ListPlayer), ListPlayer);
-			var playableItem = new ListBoxItem { Content = wrapper };
+			var control = PlayableControlDictionary.GetFor(playable, ListPlayer);
+			var wrapper = new PlayableListWrapper(control, ListPlayer);
+			var playableItem = new ListBoxItem { Content = wrapper, AllowDrop = true };
 
-			playableItem.AllowDrop = true;
+			// Replacing context menu to parent element and adding new elements
+			var contextMenu = control.ContextMenu;
+			control.ContextMenu = null;
+			playableItem.ContextMenu = new Dictionary<string, Action>
+			{
+				{ "delete", () => Remove(playable) }
+			}.GetContextMenu(contextMenu);
+
+			// Drag-and-drop operations
 			wrapper.dragElement.Dragged += (s, e) => DragDrop.DoDragDrop(playableItem, playableItem, DragDropEffects.Move);
 			playableItem.DragOver += PlayableItem_DragOver;
 			playableItem.Drop += List_Drop;
 
-			playableItem.ContextMenu = new Dictionary<string, Action>
-			{
-				{ "delete", () => Remove(playable) }
-			}.GetContextMenu();
-
 			return playableItem;
 		}
 
+		#region dragdrop
+
+		protected abstract void List_Drop(object sender, DragEventArgs e);
 		private void PlayableItem_DragOver(object sender, DragEventArgs e)
 		{
 			var sourceItem = (ListBoxItem)e.Data.GetData(typeof(ListBoxItem));
 			var targetItem = (ListBoxItem)sender;
 
-			if (sourceItem?.Content is PlayableWrapper && sourceItem != targetItem)
+			if (sourceItem?.Content is PlayableListWrapper && sourceItem != targetItem)
 				Move(sourceItem, targetItem);
 		}
 
+		#endregion
+
 		public ListPlayerControl(ListPlayer listPlayer) : base(listPlayer)
 		{
+			// WPF xaml designing makes errors if this class will be deriven in plugins...
 			#region init
 			var dockPanel = new DockPanel { HorizontalAlignment = HorizontalAlignment.Stretch };
 
 			var listBoxItem = new ListBoxItem { HorizontalContentAlignment = HorizontalAlignment.Stretch };
-            {
-                var buttonsList = Buttons ?? new Dictionary<int, (PackIconMaterialKind, RoutedEventHandler, object?)>();
-                buttonsList.TryAdd(0, (PackIconMaterialKind.Plus, AddButton_Click, new TranslatedTooltip("add.")));
-                buttonsList.TryAdd(10, (PackIconMaterialKind.DeleteSweepOutline, DeleteSelectionButton_Click, new TranslatedTooltip("remove_selected")));
+			{
+				var buttonsList = Buttons ?? new Dictionary<int, (PackIconMaterialKind, RoutedEventHandler, object?)>();
+				buttonsList.TryAdd(0, (PackIconMaterialKind.Plus, AddButton_Click, new TranslatedTooltip("add.")));
+				buttonsList.TryAdd(10, (PackIconMaterialKind.DeleteSweepOutline, DeleteSelectionButton_Click, new TranslatedTooltip("remove_selected")));
 				int buttonsCount = buttonsList.Count;
 
-                var grid = new Grid();
+				var grid = new Grid();
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 				grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
 				for (int i = 0; i < buttonsCount; i++)
@@ -81,12 +95,12 @@ namespace RCAudioPlayer.WPF.Players.Main
 				grid.Children.Add(label);
 				Grid.SetColumn(label, 1);
 
-                int offset = 0;
+				int offset = 0;
 				foreach (var buttonInfo in buttonsList.OrderBy(s => s.Key))
 				{
 					var button = new Button
 					{
-						Margin = new Thickness(3, 0, buttonsList.Count == offset - 1 ? 0 : 3, 0),
+						Margin = new Thickness(3, 0, buttonsList.Count - 1 == offset ? 0 : 3, 0),
 						Content = new PackIconMaterial { Kind = buttonInfo.Value.Item1 },
 						Style = (Style)App.Current.Resources["MaterialDesignFloatingActionMiniButton"]
 					};
@@ -186,14 +200,14 @@ namespace RCAudioPlayer.WPF.Players.Main
 
 		public void Remove(ListBoxItem playableItem)
 		{
-			var playableControl = (PlayableWrapper)playableItem.Content;
+			var playableControl = (PlayableListWrapper)playableItem.Content;
 			Remove(playableControl.PlayableControl.Playable);
 		}
 
 		public bool Move(ListBoxItem source, int targetIndex)
 		{
 			if (listBox.Items.Contains(source) && targetIndex >= 0 && targetIndex <= Count
-				&& ListPlayer.Move(((PlayableWrapper)source.Content).PlayableControl.Playable, targetIndex))
+				&& ListPlayer.Move(((PlayableListWrapper)source.Content).PlayableControl.Playable, targetIndex))
 			{
 				listBox.Items.Remove(source);
 				listBox.Items.Insert(targetIndex, source);
@@ -227,9 +241,10 @@ namespace RCAudioPlayer.WPF.Players.Main
 			return Move(ListPlayer.IndexOf(source), ListPlayer.IndexOf(target));
 		}
 
-		protected abstract void List_Drop(object sender, DragEventArgs e);
+		// This button used to add elements to end of list
 		protected abstract void AddButton_Click(object sender, RoutedEventArgs e);
 
+		// This button used to remove selected elements in list control
 		private void DeleteSelectionButton_Click(object sender, RoutedEventArgs e)
 		{
 			var selectedItems = listBox.SelectedItems.Cast<ListBoxItem>().ToList();

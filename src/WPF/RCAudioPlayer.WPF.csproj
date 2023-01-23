@@ -7,8 +7,8 @@
     <UseWPF>true</UseWPF>
     <SignAssembly>False</SignAssembly>
     <Company>RomeCore</Company>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
     <Description>WPF wrapper for RCAudioPlayer.Core library</Description>
   </PropertyGroup>
 
@@ -33,5 +33,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\RCAudioPlayer.Core.csproj" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(SolutionDir)lang&quot; &quot;$(TargetDir)lang\&quot; /y /s /e" />
+  </Target>
 
 </Project>

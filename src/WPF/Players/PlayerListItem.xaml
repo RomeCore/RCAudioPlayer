@@ -18,7 +18,7 @@
 		</Grid.ColumnDefinitions>
 
 		<Button x:Name="selectButton" Grid.Column="0" Click="SelectButton_Click" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
-            <icons:PackIconMaterial Kind="Play"/>
+			<icons:PackIconMaterial Kind="Play"/>
 		</Button>
 
 		<Label Grid.Column="1" VerticalAlignment="Center">
@@ -26,15 +26,15 @@
 		</Label>
 
 		<Button x:Name="editButton" Grid.Column="2" Margin="3 0" ToolTip="{t:Translate edit}" Click="EditButton_Click" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
-            <icons:PackIconMaterial Kind="ContentSaveEdit"/>
+			<icons:PackIconMaterial Kind="ContentSaveEdit"/>
 		</Button>
 
 		<Button x:Name="renameButton" Grid.Column="3" Margin="3 0" ToolTip="{t:Translate rename}" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
-            <icons:PackIconMaterial Kind="FormTextbox"/>
+			<icons:PackIconMaterial Kind="FormTextbox"/>
 		</Button>
 
-        <Button x:Name="deleteButton" Grid.Column="4" Margin="3 0 0 0" ToolTip="{t:Translate delete}" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
-            <icons:PackIconMaterial Kind="DeleteOutline"/>
+		<Button x:Name="deleteButton" Grid.Column="4" Margin="3 0 0 0" ToolTip="{t:Translate delete}" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
+			<icons:PackIconMaterial Kind="DeleteOutline"/>
 		</Button>
 		
 	</Grid>

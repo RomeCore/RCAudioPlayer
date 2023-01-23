@@ -4,13 +4,13 @@ using System.Windows.Media;
 
 namespace RCAudioPlayer.WPF.Visualizers
 {
-    [VisualizerControl("Wave")]
+	[VisualizerControl("Wave")]
 	public class WaveVisualizer : VisualizerControl
 	{
 		public int MaxBars { get; set; }
 
 		public WaveVisualizer()
-        {
+		{
 			MaxBars = 500;
 		}
 

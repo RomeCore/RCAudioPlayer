@@ -16,6 +16,9 @@
     <Compile Update="Dialogs\ColorDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dialogs\ExceptionDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Dialogs\MessageDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,7 +43,10 @@
     <Compile Update="Playables\GenericPlayableControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Playables\PlayableWrapper.xaml.cs">
+    <Compile Update="Playables\Main\ErrorPlayableControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Playables\PlayableListWrapper.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Playables\Sub\GenericPlayableSubControl.xaml.cs">
@@ -93,6 +99,9 @@
     <Page Update="Dialogs\ColorDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Dialogs\ExceptionDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Dialogs\MessageDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -117,7 +126,10 @@
     <Page Update="Playables\GenericPlayableControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Playables\PlayableWrapper.xaml">
+    <Page Update="Playables\Main\ErrorPlayableControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Playables\PlayableListWrapper.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Playables\Sub\GenericPlayableSubControl.xaml">

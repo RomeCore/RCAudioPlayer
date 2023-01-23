@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 
 namespace RCAudioPlayer.WPF.Translation
 {
+	// Provides methods to load translations and use them
 	static public class TranslationDictionary
 	{
 		public const string Folder = "lang";
@@ -29,10 +30,11 @@ namespace RCAudioPlayer.WPF.Translation
 		static public void LoadLanguage(string langName)
 		{
 			var folderPath = Path.Combine(Folder, langName);
-			List<Dictionary<string, string>> dictionaries = new List<Dictionary<string, string>>();
 
 			if (Directory.Exists(folderPath))
 			{
+				List<Dictionary<string, string>> dictionaries = new List<Dictionary<string, string>>();
+
 				foreach (var jsonFile in Directory.EnumerateFiles(folderPath, "*.json"))
 				{
 					var fileData = File.ReadAllText(jsonFile);
@@ -47,6 +49,30 @@ namespace RCAudioPlayer.WPF.Translation
 				LanguageChanged(null, EventArgs.Empty);
 				LoadedLanguage = langName;
 			}
+		}
+
+		static public void LoadDefault()
+		{
+			var languages = Directory.EnumerateDirectories(Folder).Select(s => Path.GetDirectoryName(s)).ToList();
+
+			var currentCultureDisplay = System.Globalization.CultureInfo.InstalledUICulture.DisplayName;
+			if (languages.Contains(currentCultureDisplay))
+			{
+				LoadLanguage(currentCultureDisplay);
+				return;
+			}
+
+			if (!currentCultureDisplay.Contains('('))
+				return;
+			var shortName = currentCultureDisplay.Substring(0, currentCultureDisplay.IndexOf('(')).Trim();
+			if (languages.Contains(shortName))
+			{
+				LoadLanguage(shortName);
+				return;
+			}
+
+			if (languages.Contains("English"))
+				LoadLanguage("English");
 		}
 	}
 }

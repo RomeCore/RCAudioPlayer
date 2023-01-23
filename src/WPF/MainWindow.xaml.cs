@@ -93,7 +93,7 @@ namespace RCAudioPlayer.WPF
 			State.Set("pipelinem_size", rightColumn.Width.Value);
 
 			PlayerManager.Dispose();
-            State.Save();
+			State.Save();
 		}
 
 		protected override void OnClosed(EventArgs e)
