@@ -3,7 +3,7 @@ using RCAudioPlayer.Core.Streams;
 
 namespace RCAudioPlayer.Core
 {
-    public class PlayerMaster : IDisposable
+	public class PlayerMaster : IDisposable
 	{
 		public AudioOutput Output { get; }
 		public PipelineStream PipelineStream { get; }
@@ -20,16 +20,16 @@ namespace RCAudioPlayer.Core
 		{
 			PipelineStream = new PipelineStream();
 			Output = new AudioOutput();
-        }
+		}
 
-        public void Dispose()
-        {
+		public void Dispose()
+		{
 			Save();
-            PipelineStream.Dispose();
+			PipelineStream.Dispose();
 			Output.Dispose();
-        }
+		}
 
-        public void Save()
+		public void Save()
 		{
 			PipelineManager.Save();
 		}
@@ -40,6 +40,6 @@ namespace RCAudioPlayer.Core
 			PipelineStream.InputStream = input;
 			Output.Init(PipelineStream);
 			Output.Play();
-        }
+		}
 	}
 }
