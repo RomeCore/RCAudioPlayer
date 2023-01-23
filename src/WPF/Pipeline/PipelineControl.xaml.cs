@@ -5,7 +5,7 @@ using RCAudioPlayer.Core.Pipeline;
 
 namespace RCAudioPlayer.WPF.Pipeline
 {
-    public partial class PipelineControl : UserControl
+	public partial class PipelineControl : UserControl
 	{
 		public Core.Pipeline.Pipeline Pipeline { get; }
 		public int ElementsCount => Pipeline.Elements.Count;

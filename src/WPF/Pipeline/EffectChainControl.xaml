@@ -27,7 +27,7 @@
 			</Grid>
 		</ListBoxItem>
 
-        <ItemsControl x:Name="controlsList" DockPanel.Dock="Top"  HorizontalContentAlignment="Stretch"/>
+		<ItemsControl x:Name="controlsList" DockPanel.Dock="Top"  HorizontalContentAlignment="Stretch"/>
 
-    </DockPanel>
+	</DockPanel>
 </local:PipelineElementControl>

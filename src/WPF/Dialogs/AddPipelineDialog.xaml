@@ -1,18 +1,18 @@
 ﻿<local:Window x:Class="RCAudioPlayer.WPF.Dialogs.AddPipelineDialog"
-		      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-		      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-		      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		      xmlns:local="clr-namespace:RCAudioPlayer.WPF"
+			  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			  xmlns:local="clr-namespace:RCAudioPlayer.WPF"
 			  xmlns:t="clr-namespace:RCAudioPlayer.WPF.Translation"
-		      xmlns:tb="clr-namespace:RCAudioPlayer.WPF.TextBoxes"
-		      xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
-		      mc:Ignorable="d"
-		      FontSize="20"
-              ShowButtons="False"
-              ResizeMode="NoResize"
-		      SizeToContent="WidthAndHeight"
-		      Title="{t:Translate add_pipeline}">
+			  xmlns:tb="clr-namespace:RCAudioPlayer.WPF.TextBoxes"
+			  xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+			  mc:Ignorable="d"
+			  FontSize="20"
+			  ShowButtons="False"
+			  ResizeMode="NoResize"
+			  SizeToContent="WidthAndHeight"
+			  Title="{t:Translate add_pipeline}">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition/>
@@ -22,7 +22,7 @@
 
 		<Grid>
 			<Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
 				<ColumnDefinition/>
 			</Grid.ColumnDefinitions>
 
@@ -38,11 +38,11 @@
 				<ColumnDefinition/>
 			</Grid.ColumnDefinitions>
 
-            <Label Content="{t:Translate based_on:}"/>
+			<Label Content="{t:Translate based_on:}"/>
 
-            <ComboBox x:Name="basedOnSelector" Grid.Column="1"/>
+			<ComboBox x:Name="basedOnSelector" Grid.Column="1"/>
 
-        </Grid>
+		</Grid>
 		
 		<Grid Grid.Row="2" HorizontalAlignment="Center">
 			<Grid.ColumnDefinitions>

@@ -16,15 +16,15 @@
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="50"/>
 				<ColumnDefinition/>
-                <ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
 				<ColumnDefinition Width="auto"/>
 			</Grid.ColumnDefinitions>
 
-            <ctrl:DragElement x:Name="dragElement" Margin="10"/>
+			<ctrl:DragElement x:Name="dragElement" Margin="10"/>
 
-            <CheckBox x:Name="effectEnabler" VerticalAlignment="Center" Grid.Column="1"/>
+			<CheckBox x:Name="effectEnabler" VerticalAlignment="Center" Grid.Column="1"/>
 
-            <tb:TextBoxButton x:Name="createButton" Margin="5" Grid.Column="2" ButtonContent="{t:Translate create}"/>
+			<tb:TextBoxButton x:Name="createButton" Margin="5" Grid.Column="2" ButtonContent="{t:Translate create}"/>
 
 			<ComboBox x:Name="presetSelector" Margin="5" Grid.Column="3"/>
 

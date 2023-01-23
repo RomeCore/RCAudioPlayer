@@ -1,18 +1,8 @@
-﻿using RCAudioPlayer.WPF.Dialogs;
-using RCAudioPlayer.WPF.Translation;
-using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using RCAudioPlayer.WPF.Dialogs;
+using RCAudioPlayer.WPF.Translation;
 
 namespace RCAudioPlayer.WPF.Files
 {
@@ -27,9 +17,9 @@ namespace RCAudioPlayer.WPF.Files
 				// translation
 				langSelector.ItemsSource = Directory.GetDirectories(TranslationDictionary.Folder).Select(s => System.IO.Path.GetFileName(s));
 				langSelector.SelectedValue = Settings.Language;
-                langSelector.SelectionChanged += (s, e) => Settings.Language = (string)langSelector.SelectedValue;
+				langSelector.SelectionChanged += (s, e) => Settings.Language = (string)langSelector.SelectedValue;
 
-            } // no group
+			} // no group
 
 			{ // theme
 
@@ -66,11 +56,11 @@ namespace RCAudioPlayer.WPF.Files
 			Close();
 		}
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = false;
-            Settings.Load();
-            Close();
-        }
-    }
+		private void CancelButton_Click(object sender, RoutedEventArgs e)
+		{
+			DialogResult = false;
+			Settings.Load();
+			Close();
+		}
+	}
 }

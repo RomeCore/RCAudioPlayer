@@ -6,7 +6,7 @@
 			 xmlns:local="clr-namespace:RCAudioPlayer.WPF.Playables.Sub"
 			 mc:Ignorable="d" 
 			 d:DesignHeight="50" d:DesignWidth="400">
-    <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3">
-        <TextBlock x:Name="fullTitleText"/>
-    </Label>
+	<Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3">
+		<TextBlock x:Name="fullTitleText"/>
+	</Label>
 </local:PlayableSubControl>

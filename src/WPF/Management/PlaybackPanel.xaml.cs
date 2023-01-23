@@ -4,7 +4,7 @@ using RCAudioPlayer.WPF.Players.Sub;
 
 namespace RCAudioPlayer.WPF.Management
 {
-    public partial class PlaybackPanel
+	public partial class PlaybackPanel
 	{
 		public PlaybackPanel()
 		{

@@ -6,7 +6,7 @@ using RCAudioPlayer.WPF.TextBoxes;
 
 namespace RCAudioPlayer.WPF.Effects.Properties
 {
-    [EffectPropertyControl(typeof(ValueAttribute))]
+	[EffectPropertyControl(typeof(ValueAttribute))]
 	public class ValuePropertyControl : EffectPropertyControl
 	{
 		public ValuePropertyControl(AudioEffect effect, PropertyInfo info, ValueAttribute attribute) : base(effect, info, attribute)

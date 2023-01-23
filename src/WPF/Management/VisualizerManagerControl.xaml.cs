@@ -10,7 +10,7 @@ using RCAudioPlayer.WPF.Visualizers;
 
 namespace RCAudioPlayer.WPF.Management
 {
-    public partial class VisualizerManagerControl
+	public partial class VisualizerManagerControl
 	{
 		public PlayerMaster? Master { get; private set; }
 		public string? VisualizerName { get; private set; }
@@ -68,8 +68,8 @@ namespace RCAudioPlayer.WPF.Management
 			if (Master == null)
 				throw new InvalidOperationException("Visualizer manager is not loaded!");
 
-            Files.State.Set("visualizer", name);
-            Deselect();
+			Files.State.Set("visualizer", name);
+			Deselect();
 
 			visualizerSelector.SelectedValue = VisualizerName = name;
 			if (!string.IsNullOrEmpty(name))
@@ -83,7 +83,7 @@ namespace RCAudioPlayer.WPF.Management
 				if (Master != null)
 					Master.PipelineStream.SamplesReceived += PipelineStream_SamplesReceived;
 				return true;
-            }
+			}
 			return false;
 		}
 

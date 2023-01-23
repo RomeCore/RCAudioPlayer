@@ -7,7 +7,7 @@ using RCAudioPlayer.Core.Effects.Attributes;
 
 namespace RCAudioPlayer.WPF.Effects.Properties
 {
-    [EffectPropertyControl(typeof(RangeAttribute))]
+	[EffectPropertyControl(typeof(RangeAttribute))]
 	public class RangePropertyControl : EffectPropertyControl
 	{
 		public RangePropertyControl(AudioEffect effect, PropertyInfo info, RangeAttribute attribute) : base(effect, info, attribute)
@@ -33,7 +33,7 @@ namespace RCAudioPlayer.WPF.Effects.Properties
 			{
 				slider.IsSnapToTickEnabled = true;
 				slider.TickFrequency = attribute.TickFrequency;
-            }
+			}
 
 			bool update = true;
 			slider.ValueChanged += (s, e) =>

@@ -9,8 +9,8 @@ using RCAudioPlayer.WPF.Effects;
 
 namespace RCAudioPlayer.WPF.Pipeline
 {
-    [PipelineElementControl(typeof(EffectChain))]
-    public partial class EffectChainControl
+	[PipelineElementControl(typeof(EffectChain))]
+	public partial class EffectChainControl
 	{
 		public EffectChain EffectChain { get; }
 		public int EffectsCount => Effects.Count;
@@ -73,7 +73,7 @@ namespace RCAudioPlayer.WPF.Pipeline
 		
 		public bool Remove(AudioEffect effect)
 		{
-            return Remove(EffectChain.IndexOf(effect));
+			return Remove(EffectChain.IndexOf(effect));
 		}
 		
 		public bool Insert(AudioEffect effect, int position)
@@ -129,7 +129,7 @@ namespace RCAudioPlayer.WPF.Pipeline
 		}
 
 		public void Clear()
-        {
+		{
 			EffectChain.Clear();
 			controlsList.Items.Clear();
 

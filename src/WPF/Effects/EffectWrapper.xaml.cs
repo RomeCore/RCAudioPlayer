@@ -57,8 +57,8 @@ namespace RCAudioPlayer.WPF.Effects
 				var name = e.Text;
 				if (!AudioEffectData.Presets.Presets.ContainsKey(name))
 					presetSelector.Items.Add(name);
-                AudioEffectData.Presets.Set(name, AudioEffect.SerializePreset());
-                AudioEffect.PresetName = name;
+				AudioEffectData.Presets.Set(name, AudioEffect.SerializePreset());
+				AudioEffect.PresetName = name;
 				presetSelector.SelectedValue = name;
 			};
 		}

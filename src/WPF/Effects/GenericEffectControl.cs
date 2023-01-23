@@ -5,7 +5,7 @@ using RCAudioPlayer.Core.Effects;
 
 namespace RCAudioPlayer.WPF.Effects
 {
-    public class GenericEffectControl : EffectControl
+	public class GenericEffectControl : EffectControl
 	{
 		public GenericEffectControl(AudioEffect effect) : base(effect)
 		{

@@ -1,7 +1,7 @@
 ﻿using MahApps.Metro.IconPacks;
 using MaterialDesignThemes.Wpf;
 using RCAudioPlayer.Core;
-using RCAudioPlayer.Core.Players;
+using RCAudioPlayer.Core.Playables;
 
 namespace RCAudioPlayer.WPF.Playables
 {
@@ -18,7 +18,7 @@ namespace RCAudioPlayer.WPF.Playables
 			ButtonProgressAssist.SetIsIndeterminate(playButton, true);
 		}
 
-        private async void PlayButton_Click(object sender, System.Windows.RoutedEventArgs e)
+		private async void PlayButton_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
 			var materialIcon = (PackIconMaterial)playButton.Content;
 			try
@@ -34,5 +34,5 @@ namespace RCAudioPlayer.WPF.Playables
 				ButtonProgressAssist.SetIsIndicatorVisible(playButton, false);
 			}
 		}
-    }
+	}
 }

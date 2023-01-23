@@ -59,10 +59,10 @@ namespace RCAudioPlayer.WPF.Pipeline
 			}
 		}
 
-        public override void Reset()
-        {
-            base.Reset();
+		public override void Reset()
+		{
+			base.Reset();
 			Update();
-        }
-    }
+		}
+	}
 }

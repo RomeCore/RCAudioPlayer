@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RCAudioPlayer.Core.Playables;
+using System;
 
 namespace RCAudioPlayer.WPF.Playables
 {
@@ -8,7 +9,7 @@ namespace RCAudioPlayer.WPF.Playables
 
 		public PlayableControlAttribute(Type playableType)
 		{
-			if (!typeof(Core.Players.IPlayable).IsAssignableFrom(playableType))
+			if (!typeof(IPlayable).IsAssignableFrom(playableType))
 				throw new Exception("This type can't be assigned to Playable type");
 			PlayableType = playableType;
 		}

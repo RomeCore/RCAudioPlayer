@@ -6,7 +6,7 @@
 			  xmlns:local="clr-namespace:RCAudioPlayer.WPF"
 			  xmlns:t="clr-namespace:RCAudioPlayer.WPF.Translation"
 			  mc:Ignorable="d"
-              FontSize="20"
+			  FontSize="20"
 			  Title="{t:Translate settings}" Height="450" Width="800">
 	<Grid>
 		<Grid.RowDefinitions>
@@ -14,56 +14,56 @@
 			<RowDefinition Height="auto"/>
 		</Grid.RowDefinitions>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel Orientation="Vertical">
+		<ScrollViewer VerticalScrollBarVisibility="Auto">
+			<StackPanel Orientation="Vertical">
 
-                <ListBoxItem HorizontalContentAlignment="Stretch">
-                    <DockPanel>
-                        <Label Content="{t:Translate language}" Margin="3" DockPanel.Dock="Left"/>
-                        <ComboBox x:Name="langSelector" DockPanel.Dock="Right" HorizontalAlignment="Right" MinWidth="100"/>
-                    </DockPanel>
-                </ListBoxItem>
+				<ListBoxItem HorizontalContentAlignment="Stretch">
+					<DockPanel>
+						<Label Content="{t:Translate language}" Margin="3" DockPanel.Dock="Left"/>
+						<ComboBox x:Name="langSelector" DockPanel.Dock="Right" HorizontalAlignment="Right" MinWidth="100"/>
+					</DockPanel>
+				</ListBoxItem>
 
-                <Expander Header="{t:Translate theme}">
-                    <ListBox>
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
-                                <Setter Property="Focusable" Value="False"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
+				<Expander Header="{t:Translate theme}">
+					<ListBox>
+						<ListBox.ItemContainerStyle>
+							<Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
+								<Setter Property="Focusable" Value="False"/>
+								<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+							</Style>
+						</ListBox.ItemContainerStyle>
 
-                        <DockPanel>
-                            <Label Content="{t:Translate theme:}" Margin="3" DockPanel.Dock="Left"/>
-                            <ComboBox x:Name="themeConfigSelector" HorizontalAlignment="Right" MinWidth="100" DockPanel.Dock="Right"/>
-                        </DockPanel>
+						<DockPanel>
+							<Label Content="{t:Translate theme:}" Margin="3" DockPanel.Dock="Left"/>
+							<ComboBox x:Name="themeConfigSelector" HorizontalAlignment="Right" MinWidth="100" DockPanel.Dock="Right"/>
+						</DockPanel>
 
-                        <DockPanel>
-                            <Label Content="{t:Translate primary_color}" Margin="3" DockPanel.Dock="Left"/>
-                            <Button x:Name="primaryColorButton" HorizontalAlignment="Right" MinWidth="100" DockPanel.Dock="Right"/>
-                        </DockPanel>
+						<DockPanel>
+							<Label Content="{t:Translate primary_color}" Margin="3" DockPanel.Dock="Left"/>
+							<Button x:Name="primaryColorButton" HorizontalAlignment="Right" MinWidth="100" DockPanel.Dock="Right"/>
+						</DockPanel>
 
-                        <DockPanel>
-                            <Label Content="{t:Translate secondary_color}" Margin="3" DockPanel.Dock="Left"/>
-                            <Button x:Name="secondaryColorButton" HorizontalAlignment="Right" MinWidth="100" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"/>
-                        </DockPanel>
+						<DockPanel>
+							<Label Content="{t:Translate secondary_color}" Margin="3" DockPanel.Dock="Left"/>
+							<Button x:Name="secondaryColorButton" HorizontalAlignment="Right" MinWidth="100" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignRaisedSecondaryButton}"/>
+						</DockPanel>
 
-                    </ListBox>
-                </Expander>
-            </StackPanel>
-        </ScrollViewer>
+					</ListBox>
+				</Expander>
+			</StackPanel>
+		</ScrollViewer>
 
-        <Grid Grid.Row="2" HorizontalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+		<Grid Grid.Row="2" HorizontalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Click="OkButton_Click" Content="{t:Translate ok}" Margin="3"/>
+			<Button Grid.Column="0" Click="OkButton_Click" Content="{t:Translate ok}" Margin="3"/>
 
-            <Button Grid.Column="1" Click="CancelButton_Click" Content="{t:Translate cancel}" Margin="3"/>
+			<Button Grid.Column="1" Click="CancelButton_Click" Content="{t:Translate cancel}" Margin="3"/>
 
-        </Grid>
+		</Grid>
 
-    </Grid>
+	</Grid>
 </local:Window>

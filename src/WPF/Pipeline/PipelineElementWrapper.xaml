@@ -7,21 +7,21 @@
 			 xmlns:t="clr-namespace:RCAudioPlayer.WPF.Translation"
 			 mc:Ignorable="d" 
 			 d:DesignHeight="450" d:DesignWidth="800">
-    <Expander>
+	<Expander>
 
-        <Expander.Header>
-            
-            <DockPanel Margin="-5 0" LastChildFill="False">
+		<Expander.Header>
+			
+			<DockPanel Margin="-5 0" LastChildFill="False">
 
-                <CheckBox x:Name="enabler" HorizontalAlignment="Left" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+				<CheckBox x:Name="enabler" HorizontalAlignment="Left" VerticalAlignment="Center" DockPanel.Dock="Left"/>
 
-                <Button Click="ResetButton_Click" Content="{t:Translate reset}" DockPanel.Dock="Right"/>
+				<Button Click="ResetButton_Click" Content="{t:Translate reset}" DockPanel.Dock="Right"/>
 
-            </DockPanel>
-            
-        </Expander.Header>
+			</DockPanel>
+			
+		</Expander.Header>
 
-        <ContentControl x:Name="controlHolder"/>
+		<ContentControl x:Name="controlHolder"/>
 
-    </Expander>
+	</Expander>
 </UserControl>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using RCAudioPlayer.Core;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RCAudioPlayer.WPF.Management
 {
-    public partial class PlayerManagerControl
+	public partial class PlayerManagerControl
 	{
 		public PlayerManager? PlayerManager { get; private set; }
 		public string? PlayerName { get; private set; }
@@ -43,11 +42,11 @@ namespace RCAudioPlayer.WPF.Management
 			SwitchToList();
 
 			addButton.Click += AddButton_Click;
-            showPlayerButton.Click += (s, e) => SwitchToPlayer();
+			showPlayerButton.Click += (s, e) => SwitchToPlayer();
 			showPlayerButton.Visibility = Visibility.Collapsed;
 		}
 
-        public void Load(PlayerManager playerManager)
+		public void Load(PlayerManager playerManager)
 		{
 			Load();
 
@@ -64,9 +63,9 @@ namespace RCAudioPlayer.WPF.Management
 			var startPlayer = Files.State.Get("player", string.Empty);
 			if (!string.IsNullOrWhiteSpace(startPlayer) && PlayerManager.PlayersList.Contains(startPlayer))
 				try
-                {
-                    Load(startPlayer).ConfigureAwait(true);
-                }
+				{
+					Load(startPlayer).ConfigureAwait(true);
+				}
 				catch
 				{
 
@@ -85,18 +84,18 @@ namespace RCAudioPlayer.WPF.Management
 			listPanel.Visibility = Visibility.Collapsed;
 		}
 
-        public async Task Load(string playerName)
-        {
-            if (PlayerManager == null)
-                throw new InvalidOperationException("Player manager is not loaded!");
+		public async Task Load(string playerName)
+		{
+			if (PlayerManager == null)
+				throw new InvalidOperationException("Player manager is not loaded!");
 
-            MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Clear();
-            if (await PlayerManager.Load(playerName))
+			MainWindow.Current.TaskbarItemInfo.ThumbButtonInfos.Clear();
+			if (await PlayerManager.Load(playerName))
 			{
 				showPlayerButton.Visibility = Visibility.Visible;
 
 				Files.State.Set("player", playerName);
-                PlayerName = playerName;
+				PlayerName = playerName;
 				CurrentPlayer = PlayerManager.Current ?? throw new Exception();
 				CurrentControl = PlayerControlDictionary.GetFor(CurrentPlayer);
 				playerPanel.Content = CurrentControl;
@@ -108,7 +107,7 @@ namespace RCAudioPlayer.WPF.Management
 				}
 				else
 				{
-                    CurrentPlayer.Play();
+					CurrentPlayer.Play();
 				}
 			}
 			else

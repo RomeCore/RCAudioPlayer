@@ -1,13 +1,13 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using System;
 
 namespace RCAudioPlayer.WPF.Files
 {
 	public static class State
 	{
-		public static readonly string FileName = Core.Files.Folder + "\\state.json";
+		public static readonly string FileName = Core.Files.UserFolder + "\\state.json";
 
 		private static Dictionary<string, object> dictionary;
 
@@ -36,7 +36,7 @@ namespace RCAudioPlayer.WPF.Files
 		{
 			if (dictionary.TryGetValue(key, out var obj))
 				if ((obj = Convert.ChangeType(obj, typeof(T))) != null)
-                    return (T)obj;
+					return (T)obj;
 			return @default;
 		}
 

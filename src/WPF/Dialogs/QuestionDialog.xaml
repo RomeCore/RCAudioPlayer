@@ -6,35 +6,35 @@
 			  xmlns:local="clr-namespace:RCAudioPlayer.WPF"
 			  xmlns:t="clr-namespace:RCAudioPlayer.WPF.Translation"
 			  xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
-              xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+			  xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
 			  mc:Ignorable="d"
 			  FontSize="20"
 			  ShowButtons="False"
-              ResizeMode="NoResize"
+			  ResizeMode="NoResize"
 			  SizeToContent="WidthAndHeight"
 			  Title="Question">
-    <StackPanel Orientation="Vertical">
+	<StackPanel Orientation="Vertical">
 
-        <StackPanel Orientation="Horizontal" Margin="3">
+		<StackPanel Orientation="Horizontal" Margin="3">
 
-            <icons:PackIconMaterial Kind="Help" Width="36" Height="36" VerticalAlignment="Center" Margin="2"/>
+			<icons:PackIconMaterial Kind="Help" Width="36" Height="36" VerticalAlignment="Center" Margin="2"/>
 
-            <Label MaxWidth="540" VerticalAlignment="Center" Margin="2">
-                <TextBlock x:Name="questionText" TextWrapping="WrapWithOverflow"/>
-            </Label>
+			<Label MaxWidth="540" VerticalAlignment="Center" Margin="2">
+				<TextBlock x:Name="questionText" TextWrapping="WrapWithOverflow"/>
+			</Label>
 
-        </StackPanel>
+		</StackPanel>
 
-        <Grid HorizontalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+		<Grid HorizontalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
 
-            <Button Click="YesButton_Click" Content="{t:Translate yes}" Grid.Column="0" Margin="3"/>
+			<Button Click="YesButton_Click" Content="{t:Translate yes}" Grid.Column="0" Margin="3"/>
 
-            <Button Click="NoButton_Click" Content="{t:Translate no}" Grid.Column="1" Margin="3"/>
-        </Grid>
+			<Button Click="NoButton_Click" Content="{t:Translate no}" Grid.Column="1" Margin="3"/>
+		</Grid>
 
 	</StackPanel>
 </local:Window>

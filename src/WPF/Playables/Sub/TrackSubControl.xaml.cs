@@ -1,4 +1,4 @@
-﻿using RCAudioPlayer.Core.Players;
+﻿using RCAudioPlayer.Core.Playables;
 
 namespace RCAudioPlayer.WPF.Playables.Sub
 {
@@ -11,6 +11,9 @@ namespace RCAudioPlayer.WPF.Playables.Sub
 
 			titleText.Text = track.Title;
 			artistText.Text = track.Artist;
+
+			if (track.ThumbnailData != null)
+				thumbnail.Source = Utils.GetBitmapFromBytes(track.ThumbnailData);
 		}
 	}
 }

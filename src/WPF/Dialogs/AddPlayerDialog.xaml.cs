@@ -5,7 +5,7 @@ using RCAudioPlayer.WPF.Players;
 
 namespace RCAudioPlayer.WPF.Dialogs
 {
-    public partial class AddPlayerDialog
+	public partial class AddPlayerDialog
 	{
 		private string _selectedType;
 
@@ -26,20 +26,20 @@ namespace RCAudioPlayer.WPF.Dialogs
 			var types = PlayerManager.Types;
 			_selectedType = string.Empty;
 
-            foreach (var type in types.Keys)
+			foreach (var type in types.Keys)
 				typeSelector.Items.Add(type.Translate());
 
 			typeSelector.SelectionChanged += (s, e) =>
-            {
+			{
 				int index = typeSelector.SelectedIndex;
-                var type = types.ElementAt(index);
-                _selectedType = type.Key;
+				var type = types.ElementAt(index);
+				_selectedType = type.Key;
 				
 				if (CanEdit = type.Value.Attribute.CanEdit)
 					editButton.Visibility = Visibility.Visible;
 				else
 					editButton.Visibility = Visibility.Collapsed;
-            };
+			};
 
 		}
 
@@ -63,17 +63,17 @@ namespace RCAudioPlayer.WPF.Dialogs
 			return dialog;
 		}
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
-        {
+		private void EditButton_Click(object sender, RoutedEventArgs e)
+		{
 			if (PlayerManager.Types.TryGetValue(PlayerType, out var playerTypeData))
-            {
+			{
 				var dialog = PlayerControlDictionary.GetEditorFor(playerTypeData.Type, EditResult);
 				if (dialog.ShowDialog() ?? false)
-                {
+				{
 					EditResult = dialog.Result;
 					EditSuccess = dialog.Success;
 				}
 			}
-        }
-    }
+		}
+	}
 }

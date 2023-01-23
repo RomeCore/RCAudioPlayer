@@ -8,35 +8,35 @@
 			 xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
 			 mc:Ignorable="d" 
 			 d:DesignHeight="450" d:DesignWidth="800">
-    <DockPanel>
-        <ListBoxItem DockPanel.Dock="Bottom">
-            <Grid Margin="5">
+	<DockPanel>
+		<ListBoxItem DockPanel.Dock="Bottom">
+			<Grid Margin="5">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="auto"/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
 
-                <Button x:Name="addButton" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
-                    <icons:Material Kind="Plus"/>
-                </Button>
+				<Button x:Name="addButton" Style="{DynamicResource MaterialDesignFloatingActionMiniButton}">
+					<icons:Material Kind="Plus"/>
+				</Button>
 
-                <Label Grid.Column="1" VerticalAlignment="Center" Content="{t:Translate add.}"/>
+				<Label Grid.Column="1" VerticalAlignment="Center" Content="{t:Translate add.}"/>
 
-            </Grid>
-        </ListBoxItem>
+			</Grid>
+		</ListBoxItem>
 
-        <GridSplitter DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Stretch" IsEnabled="False" Height="3"/>
+		<GridSplitter DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Stretch" IsEnabled="False" Height="3"/>
 
-        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-            <ItemsControl x:Name="controlsList">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-        
-    </DockPanel>
+		<ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+			<ItemsControl x:Name="controlsList">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+		
+	</DockPanel>
 </UserControl>

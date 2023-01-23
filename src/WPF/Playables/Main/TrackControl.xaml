@@ -1,22 +1,19 @@
 ﻿<local:PlayableControl x:Class="RCAudioPlayer.WPF.Playables.Main.TrackControl"
-			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-			 xmlns:local="clr-namespace:RCAudioPlayer.WPF.Playables"
-			 mc:Ignorable="d" 
-			 d:DesignHeight="40" d:DesignWidth="400">
-    <Grid>
+					   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+					   xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+					   xmlns:local="clr-namespace:RCAudioPlayer.WPF.Playables"
+					   mc:Ignorable="d" 
+					   d:DesignHeight="40" d:DesignWidth="400">
+	<DockPanel>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+		<Image DockPanel.Dock="Left" x:Name="thumbnail" Height="40" Margin="0 0 6 0" x:FieldModifier="private"/>
 
-        <TextBlock Grid.Row="0" x:Name="titleText" VerticalAlignment="Center" FontSize="14"/>
+		<TextBlock DockPanel.Dock="Top" x:Name="titleText" VerticalAlignment="Center" FontSize="14" x:FieldModifier="private"/>
 
-        <TextBlock Grid.Row="1" x:Name="artistText" VerticalAlignment="Center" FontSize="10"/>
+		<TextBlock DockPanel.Dock="Bottom" x:Name="artistText" VerticalAlignment="Center" FontSize="10" x:FieldModifier="private"/>
 
-    </Grid>
-    
+	</DockPanel>
+	
 </local:PlayableControl>

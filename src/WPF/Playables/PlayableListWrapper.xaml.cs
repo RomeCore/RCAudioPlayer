@@ -2,26 +2,30 @@
 using MahApps.Metro.IconPacks;
 using MaterialDesignThemes.Wpf;
 using RCAudioPlayer.Core.Players;
+using RCAudioPlayer.Core.Playables;
 using RCAudioPlayer.WPF.Dialogs;
 
 namespace RCAudioPlayer.WPF.Playables
 {
-	public partial class PlayableWrapper : UserControl
+	public partial class PlayableListWrapper : UserControl
 	{
 		public PlayableControl PlayableControl { get; }
 		public Player Player { get; }
 
-		public PlayableWrapper(PlayableControl playableControl, Player player)
+		public PlayableListWrapper(PlayableControl playableControl, Player player)
 		{
 			InitializeComponent();
 			PlayableControl = playableControl;
 			Player = player;
 
+			if (playableControl.Playable is ErrorPlayable)
+				playButton.Visibility = System.Windows.Visibility.Collapsed;
+			else
+				ButtonProgressAssist.SetIsIndeterminate(playButton, true);
 			playableHolder.Content = PlayableControl;
-			ButtonProgressAssist.SetIsIndeterminate(playButton, true);
 		}
 
-        private async void PlayButton_Click(object sender, System.Windows.RoutedEventArgs e)
+		private async void PlayButton_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
 			var materialIcon = (PackIconMaterial)playButton.Content;
 			try
@@ -40,8 +44,8 @@ namespace RCAudioPlayer.WPF.Playables
 			{
 				materialIcon.Kind = PackIconMaterialKind.AlertCircleOutline;
 				ButtonProgressAssist.SetIsIndicatorVisible(playButton, false);
-				MessageDialog.Show(exc);
+				ExceptionDialog.Show(exc);
 			}
 		}
-    }
+	}
 }

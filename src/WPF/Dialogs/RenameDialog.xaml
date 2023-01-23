@@ -24,8 +24,8 @@
 			</Grid.ColumnDefinitions>
 
 			<Button x:Name="okButton" Grid.Column="0" Click="OkButton_Click" Content="{t:Translate ok}" Margin="3"/>
-            
-            <Button x:Name="cancelButton" Grid.Column="1" Click="CancelButton_Click" Content="{t:Translate cancel}" Margin="3"/>
+			
+			<Button x:Name="cancelButton" Grid.Column="1" Click="CancelButton_Click" Content="{t:Translate cancel}" Margin="3"/>
 
 		</Grid>
 

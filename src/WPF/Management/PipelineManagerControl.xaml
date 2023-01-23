@@ -14,14 +14,14 @@
 
 		<ListBoxItem DockPanel.Dock="Top" HorizontalContentAlignment="Stretch">
 			<Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition Width="auto"/>
+					<ColumnDefinition Width="auto"/>
+					<ColumnDefinition Width="auto"/>
+				</Grid.ColumnDefinitions>
 
-                <CheckBox x:Name="enabler" Content="{t:Translate enable}" Margin="5 0" VerticalAlignment="Center"/>
+				<CheckBox x:Name="enabler" Content="{t:Translate enable}" Margin="5 0" VerticalAlignment="Center"/>
 
 				<ComboBox x:Name="effectChainSelector" Grid.Column="1" MinWidth="50" Margin="5 0" md:TextFieldAssist.HasClearButton="True"/>
 
@@ -35,8 +35,8 @@
 
 			</Grid>
 		</ListBoxItem>
-        <GridSplitter DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Center" IsEnabled="False" Height="3"/>
-        <ContentControl x:Name="pipelineHolder" DockPanel.Dock="Bottom"/>
+		<GridSplitter DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Center" IsEnabled="False" Height="3"/>
+		<ContentControl x:Name="pipelineHolder" DockPanel.Dock="Bottom"/>
 
-    </DockPanel>
+	</DockPanel>
 </mng:ManagerControl>

@@ -10,10 +10,10 @@
 					d:DesignHeight="70" d:DesignWidth="800">
 	<DockPanel>
 
-        <ContentControl x:Name="playerHolder" DockPanel.Dock="Bottom"/>
+		<ContentControl x:Name="playerHolder" DockPanel.Dock="Bottom"/>
 
-        <local:PipelineStreamSlider x:Name="streamSlider" Margin="0 -8" DockPanel.Dock="Top" 
+		<local:PipelineStreamSlider x:Name="streamSlider" Margin="0 -8" DockPanel.Dock="Top" 
 			IsMoveToPointEnabled="True" AutoToolTipPlacement="TopLeft"/>
 
-    </DockPanel>
+	</DockPanel>
 </mng:ManagerControl>

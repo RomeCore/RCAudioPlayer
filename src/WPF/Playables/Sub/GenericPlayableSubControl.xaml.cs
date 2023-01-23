@@ -1,4 +1,4 @@
-﻿using RCAudioPlayer.Core.Players;
+﻿using RCAudioPlayer.Core.Playables;
 
 namespace RCAudioPlayer.WPF.Playables.Sub
 {

@@ -5,7 +5,7 @@ using RCAudioPlayer.WPF.Pipeline;
 
 namespace RCAudioPlayer.WPF.Management
 {
-    public partial class PipelineManagerControl
+	public partial class PipelineManagerControl
 	{
 		public PipelineManager? PipelineManager { get; private set; }
 		public string? CurrentName { get; private set; }
@@ -43,12 +43,11 @@ namespace RCAudioPlayer.WPF.Management
 			var startPipeline = Files.State.Get("pipeline", string.Empty);
 			if (!string.IsNullOrEmpty(startPipeline) && PipelineManager.Pipelines.Contains(startPipeline))
 				try
-                {
-                    Select(startPipeline);
-                }
+				{
+					Select(startPipeline);
+				}
 				catch
 				{
-
 				}
 		}
 
