@@ -1,0 +1,68 @@
+{
+	"enable": "Включить",
+
+	"ok": "Ок",
+	"apply": "Применить",
+	"cancel": "Отмена",
+	"yes": "Да",
+	"no": "Нет",
+	"add": "Добавить",
+	"add.": "Добавить...",
+	"rename": "Переименовать",
+	"create": "Создать",
+	"create.": "Создать...",
+	"delete": "Удалить",
+	"reset": "Сбросить",
+	"edit": "Редактировать",
+
+	"players": "Проигрыватели",
+	"show_player": "Показать плеер",
+	"add_player": "Добавить проигрыватель",
+	"type:": "Тип:",
+
+	"add_pipeline": "Добавить конвеер",
+	"name:": "Название:",
+	"based_on:": "Основан на:",
+
+	"visualizer:": "Визуализатор:",
+	"steps:": "Шаги:",
+
+	"message": "Сообщение",
+	"login": "Логин",
+	"password": "Пароль",
+	"authorise": "Войти",
+
+	"hotkey_alert_header": "Горячие клавиши уже зарегистрированы!",
+	"hotkey_alert": "Горячие клавиши не будут работать для этого приложения!",
+
+	"remove_sure_header": "Удалить?",
+	"remove_sure_frag": "Вы точно хотите удалить",
+
+	"reset_sure_header": "Сброс?",
+	"reset_sure": "Вы уверены, что нужно сбросить этот элемент конвеера?",
+	
+	"show_in_explorer": "Показать в проводнике",
+	
+	"add_files.": "Добавить файлы...",
+	"add_clipboard": "Добавить из буфера обмена",
+	"remove_selected": "Удалить выделенные",
+
+	"generic_edit_title": "Редактирование...",
+	"generic_edit_label": "Контент файла:",
+
+	"settings": "Настройки",
+	"exception_msg": "Возникла ошибка!",
+	"exception_window_title": "Исключение",
+	"exception_window_st": "Трассировка стека",
+
+	"language": "Язык",
+
+	"theme": "Тема",
+	"theme:": "Тема:",
+	"primary_color": "Основной цвет",
+	"secondary_color": "Вторичный цвет",
+	"theme_dark": "Тёмная",
+	"theme_light": "Светлая"
+
+
+}
