@@ -5,8 +5,7 @@ namespace RCAudioPlayer.Core
 {
 	static public class Files
 	{
-		public static string Folder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + '\\' + "RC Audio Player";
-
+		public static string UserFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + '\\' + "RC Audio Player";
 
 	}
 }

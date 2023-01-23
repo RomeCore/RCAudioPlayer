@@ -2,11 +2,12 @@
 using System.IO;
 using System.Threading.Tasks;
 using NAudio.Wave;
+using RCAudioPlayer.Core.Playables;
 using RCAudioPlayer.Core.Streams;
 
 namespace RCAudioPlayer.Core.Players
 {
-	public abstract class ElementPlayer : Player
+    public abstract class ElementPlayer : Player
 	{
 		public class UpdateArgs<TPlayable> where TPlayable : IPlayable
 		{

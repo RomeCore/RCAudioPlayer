@@ -6,45 +6,52 @@ using RCAudioPlayer.Core.Streams;
 
 namespace RCAudioPlayer.Core.Data
 {
+	// Describes playlist loaded from m3u file
+	// Most of functionality supported
 	[UriSupports("m3u", "m3u8")]
 	public class M3UPlaylist : Playlist<M3UElement>, IAudioData
 	{
 		public string Uri { get; }
-        public float Length { get; }
-        public Dictionary<string, object> Data { get; }
+		public float Length { get; }
+		public Dictionary<string, object> Data { get; }
 
 		public M3UPlaylist(string uri, Dictionary<string, object>? data = null)
 		{
 			Uri = uri;
-            Data = data ?? new Dictionary<string, object>();
+			Data = data ?? new Dictionary<string, object>();
 
-            var fileData = NetClient.GetString(uri);
+			var fileData = NetClient.GetString(uri);
 			var currentData = new Dictionary<string, object>();
 			foreach (var line in fileData.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries))
+            {
 				if (!string.IsNullOrEmpty(line))
 				{
+					// Line contains uri information, put all extracted metadata to new element and add it to the end
 					if (!line.StartsWith('#'))
 					{
 						var _uri = uri;
+						// TODO: upgrade "check if uri is local"
 						if (File.Exists(line))
 							uri = line;
 						else
 						{
+							// Uri is local, making uri global
 							if (uri.Contains("index.m3u8"))
-                                _uri = uri.Replace("index.m3u8", line);
+								_uri = uri.Replace("index.m3u8", line);
 							else if (uri.Contains("index.m3u"))
-                                _uri = uri.Replace("index.m3u", line);
+								_uri = uri.Replace("index.m3u", line);
 							else
-                                _uri = Path.Combine(uri, line);
+								_uri = Path.Combine(uri, line);
 						}
 						List.Add(new M3UElement(_uri, currentData.ToDictionary(k => k.Key, s => s.Value)));
 						currentData.Clear();
-                    }
+					}
+					// Line contains metadata, parse it
 					else
-                    {
-                        var _line = line.Substring(line.IndexOf(':') + 1);
+					{
+						var _line = line.Substring(line.IndexOf(':') + 1);
 						var entries = _line.Split(",", StringSplitOptions.RemoveEmptyEntries);
-                        if (line.StartsWith("#EXTINF"))
+						if (line.StartsWith("#EXTINF"))
 						{
 							currentData["length"] = float.Parse(entries[0].Replace('.', ','));
 							if (entries.Length > 1)
@@ -57,8 +64,8 @@ namespace RCAudioPlayer.Core.Data
 								}
 								else
 									currentData["title"] = entries[1];
-                            }
-                        }
+							}
+						}
 						else if (line.StartsWith("#EXT-X-KEY"))
 						{
 							foreach (var entry in entries)
@@ -71,16 +78,15 @@ namespace RCAudioPlayer.Core.Data
 						}
 					}
 				}
+			}
 
-            Length = List.Select(s => s.Length).Sum();
-        }
+			Length = List.Select(s => s.Length).Sum();
+		}
 
 		public AudioInput GetInput()
 		{
-			return AudioInput.FromStream(
-				new MediaFoundationStream(
-					GetRawInput()
-					), this);
+			var inputs = List.ConvertAll(s => s.GetInput());
+			return new StreamAudioInput(new CombinedStream(inputs), inputs[0].WaveFormat, this);
 		} 
 
 		public Stream GetRawInput()

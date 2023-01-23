@@ -1,8 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using RCAudioPlayer.Core.Playables;
+using System.Threading.Tasks;
 
 namespace RCAudioPlayer.Core.Players
 {
-	[Player("track_list")]
+    [Player("track_list")]
 	public class TrackListPlayer : ListPlayer<Track>
 	{
 		public TrackListPlayer(PlayerMaster master, string name) : base(master, name)

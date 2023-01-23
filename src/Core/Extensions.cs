@@ -29,5 +29,15 @@ namespace RCAudioPlayer.Core
 				return value;
 			return null;
 		}
+
+		static public void Skip<T>(this IEnumerable<T> enumerable)
+        {
+			foreach (var _ in enumerable);
+        }
+
+		static public async System.Threading.Tasks.Task Skip<T>(this IAsyncEnumerable<T> enumerable)
+        {
+			await foreach (var _ in enumerable);
+        }
 	}
 }

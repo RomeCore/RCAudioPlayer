@@ -12,7 +12,7 @@ namespace RCAudioPlayer.Core
 	{
 		public class PresetCollection
 		{
-			public static readonly string Folder = Files.Folder + "\\presets";
+			public static readonly string Folder = Files.UserFolder + "\\presets";
 			public const string FileExtension = ".txt";
 			public const string FilenamePattern = "*" + FileExtension;
 			public const string CustomPresetName = "custom";

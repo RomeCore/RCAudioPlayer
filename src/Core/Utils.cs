@@ -18,5 +18,11 @@
             }
             return result;
         }
+
+        public static void ShowInExplorer(string filename)
+        {
+            string argument = "/select, \"" + filename + "\"";
+            System.Diagnostics.Process.Start("explorer.exe", argument);
+        }
 	}
 }

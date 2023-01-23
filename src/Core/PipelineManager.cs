@@ -32,7 +32,7 @@ namespace RCAudioPlayer.Core
 			}
 		}
 
-		public static readonly string Folder = Files.Folder + "\\pipelines";
+		public static readonly string Folder = Files.UserFolder + "\\pipelines";
 		public const string FileExtension = ".txt";
 		public const string FilenamePattern = "*" + FileExtension;
 

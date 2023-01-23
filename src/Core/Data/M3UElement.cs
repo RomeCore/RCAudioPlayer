@@ -7,7 +7,8 @@ using RCAudioPlayer.Core.Streams;
 
 namespace RCAudioPlayer.Core.Data
 {
-	public class M3UElement : IAudioData
+	// Element of M3U playlist that extracts data from dictionary
+	public class M3UElement : IUriAudioData
 	{
 		public string Uri { get; }
 		public float Length { get; }
@@ -42,8 +43,10 @@ namespace RCAudioPlayer.Core.Data
 
 		public Stream GetRawInput()
 		{
+			// Getting bytes from uri
 			var byteData = NetClient.Get(Uri);
 
+			// Checking cipher method
 			if (Data.Get("method") is string cipherMethod)
 			{
 				SymmetricAlgorithm? alg = null;
@@ -58,9 +61,12 @@ namespace RCAudioPlayer.Core.Data
 
 				if (alg != null)
 				{
+					// Getting key from uri or from data dictionary
 					var keyUri = Data.Get("uri") as string ?? "";
 					var key = Data.Get("key") is string _key ? Encoding.UTF8.GetBytes(_key)
 						: NetClient.Get(keyUri);
+
+					// Getting initialization vector from first bytes or from data dictionary
 					var _iv = Data.Get("iv") as string;
 					byte[] iv = _iv != null ? Encoding.UTF8.GetBytes(_iv) : new byte[key.Length];
 					if (_iv == null)
@@ -70,11 +76,13 @@ namespace RCAudioPlayer.Core.Data
 					alg.Key = key;
 					alg.IV = iv;
 
+					// Configuring decryption stream
 					var length = byteData.Length - _offset;
 					var cryptoStream = new CryptoStream(new MemoryStream(byteData, _offset, length),
 						alg.CreateDecryptor(), CryptoStreamMode.Read);
 					byte[] decryptedData = new byte[length];
 
+					// Decrypting data and saving it to result stream
 					int offset = 0;
 					int blockSize = 4096 * 4;
 					while (true)

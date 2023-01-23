@@ -10,7 +10,7 @@ namespace RCAudioPlayer.Core
 {
 	public class PlayerManager : IDisposable
 	{
-		public static readonly string Folder = Files.Folder + "\\players";
+		public static readonly string Folder = Files.UserFolder + "\\players";
 		public const string FileExtension = ".txt";
 		public const string FilenamePattern = "*" + FileExtension;
 

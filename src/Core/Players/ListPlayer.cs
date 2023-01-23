@@ -3,10 +3,11 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using RCAudioPlayer.Core.Playables;
 
 namespace RCAudioPlayer.Core.Players
 {
-	public abstract class ListPlayer : ElementPlayer
+    public abstract class ListPlayer : ElementPlayer
 	{
 		public class ListUpdatedArgs<TPlayable> where TPlayable : IPlayable
 		{
@@ -190,22 +191,30 @@ namespace RCAudioPlayer.Core.Players
 			return _playlist.IndexOf(playable);
 		}
 
+		protected void SkipTrack(int step)
+        {
+			var originalPos = QueuePosition;
+			do
+			{
+				QueuePosition += step;
+				QueuePosition = ClampIndex(QueuePosition);
+				if (originalPos == QueuePosition)
+					return;
+			}
+			while (_playlist[_queue[QueuePosition]] is ErrorPlayable);
+			UpdatePos();
+		}
+
 		public override void Previous()
 		{
 			if (_current?.SkipBackward() ?? true)
-			{
-				QueuePosition--;
-				UpdatePos();
-			}
+				SkipTrack(-1);
 		}
 
 		public override void Next()
 		{
 			if (_current?.SkipForward() ?? true)
-			{
-				QueuePosition++;
-				UpdatePos();
-			}
+				SkipTrack(1);
 		}
 
 		public override async void Play()
@@ -260,7 +269,19 @@ namespace RCAudioPlayer.Core.Players
 		}
 		public virtual IAsyncEnumerable<IPlayable> Insert(IEnumerable<string> strs, int position)
 		{
-			return Insert(strs.Select(s => Create(s)).ToList(), position);
+			async Task<IPlayable> CreateFunc(string str)
+            {
+				try
+                {
+					return await Create(str);
+                }
+				catch (Exception exc)
+                {
+					return new ErrorPlayable(str, exc);
+                }
+            }
+
+			return Insert(strs.Select(CreateFunc).ToList(), position);
 		}
 		public abstract Task<IPlayable> Create(string str);
 	}
@@ -270,9 +291,6 @@ namespace RCAudioPlayer.Core.Players
 	{
 		public new event EventHandler<UpdateArgs<TPlayable>> OnElementUpdate = (s, e) => { };
 		public new event EventHandler<ListUpdatedArgs<TPlayable>> OnListUpdated = (s, e) => { };
-
-		public new IReadOnlyList<TPlayable> Playlist => base.Playlist.Cast<TPlayable>().ToList();
-		public new TPlayable? Current => base.Current as TPlayable;
 
 		public ListPlayer(PlayerMaster master, string name) : base(master, name)
 		{
@@ -291,10 +309,9 @@ namespace RCAudioPlayer.Core.Players
 		public override async Task Load(StreamReader reader)
 		{
 			_playlist.Clear();
-
+			
 			var content = reader.ReadToEnd();
-			var enumerator = Add(content.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
-			await foreach (var _ in enumerator) ;
+			await Add(content.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries)).Skip();
 
 			ListPosition = 0;
 			QueuePosition = 0;
@@ -314,13 +331,24 @@ namespace RCAudioPlayer.Core.Players
 		{
 			try
 			{
-				return base.Insert(playables.Cast<TPlayable>(), position);
+				return base.Insert(playables.Cast<TPlayable>().ToList(), position);
 			}
 			catch
 			{
 				return false;
 			}
 		}
+
+		public List<TPlayable> SafeCast()
+        {
+			List<TPlayable> list = new List<TPlayable>();
+
+			foreach (var playable in _playlist)
+				if (playable is TPlayable _playable)
+					list.Add(_playable);
+
+			return list;
+        }
 
 		public async Task Play(TPlayable playable)
 		{

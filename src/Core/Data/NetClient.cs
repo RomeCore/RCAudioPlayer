@@ -3,6 +3,7 @@ using System.Net.Http;
 
 namespace RCAudioPlayer.Core.Data
 {
+	// Utility tool for getting strings, bytes or streams from uris
 	public static class NetClient
 	{
 		public static HttpClient Http { get; }
@@ -33,19 +34,19 @@ namespace RCAudioPlayer.Core.Data
 			return DownloadStream(uri);
 		}
 
-		public static string DownloadString(string url)
+		public static string DownloadString(string uri)
 		{
-			return Http.GetStringAsync(url).Result;
+			return Http.GetStringAsync(uri).Result;
 		}
 
-		public static byte[] Download(string url)
+		public static byte[] Download(string uri)
 		{
-			return Http.GetByteArrayAsync(url).Result;
+			return Http.GetByteArrayAsync(uri).Result;
 		}
 
-		public static Stream DownloadStream(string url)
+		public static Stream DownloadStream(string uri)
 		{
-			return Http.GetStreamAsync(url).Result;
+			return Http.GetStreamAsync(uri).Result;
 		}
 	}
 }

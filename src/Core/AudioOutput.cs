@@ -19,7 +19,7 @@ namespace RCAudioPlayer.Core
 
 		public const int DefaultSampleRate = 44100;
 
-		public PipelineStream? Pipeline { get => _provider; set { if (value != null) Init(value); } }
+		public PipelineStream? PipelineStream { get => _provider; set { if (value != null) Init(value); } }
 		public PlaybackState PlaybackState
 		{
 			get => _output?.PlaybackState ?? PlaybackState.Stopped; set
