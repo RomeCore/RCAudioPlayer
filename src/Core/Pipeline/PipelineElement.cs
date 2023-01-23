@@ -22,7 +22,7 @@ namespace RCAudioPlayer.Core.Pipeline
 
 		public abstract void Reset();
 		public virtual void UpdateFormat(WaveFormat format)
-        {
+		{
 			CurrentFormat = format;
 		}
 		public virtual void ClearState()
@@ -46,19 +46,19 @@ namespace RCAudioPlayer.Core.Pipeline
 				throw new ArgumentNullException(nameof(InputElement));
 
 			while (AvailableSamples < count)
-            {
+			{
 				var samples = InputElement.Receive(BufferStep);
 				if (samples.Length > 0)
-                {
-                    Put(samples);
+				{
+					Put(samples);
 					if (samples.Length < BufferStep)
-                        break;
-                }
+						break;
+				}
 				else
-                {
-                    Flush();
-                    return Span<float>.Empty;
-                }
+				{
+					Flush();
+					return Span<float>.Empty;
+				}
 			}
 
 			var sampleCount = Math.Min(count, AvailableSamples);

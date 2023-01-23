@@ -15,12 +15,12 @@ namespace RCAudioPlayer.Core.Effects
 			public float Gain { get; set; }
 
 			public Band(float frequency, float bandwidth, float gain = 0)
-            {
-                Frequency = frequency;
-                Bandwidth = bandwidth;
-                Gain = gain;
-            }
-        }
+			{
+				Frequency = frequency;
+				Bandwidth = bandwidth;
+				Gain = gain;
+			}
+		}
 
 		public const int MaxBands = 32;
 		public readonly int bandsCount = 8;

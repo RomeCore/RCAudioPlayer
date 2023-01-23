@@ -4,7 +4,7 @@ using RCAudioPlayer.Core.Streams;
 
 namespace RCAudioPlayer.Core
 {
-    public class AudioOutput : IDisposable
+	public class AudioOutput : IDisposable
 	{
 		private WaveOut? _output;
 		private PipelineStream? _provider;

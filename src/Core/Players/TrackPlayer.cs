@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace RCAudioPlayer.Core.Players
 {
-    [Player("track", true)]
+	[Player("track", true)]
 	public class TrackPlayer : ElementPlayer<Track>
 	{
 		public TrackPlayer(PlayerMaster master, string name) : base(master, name)

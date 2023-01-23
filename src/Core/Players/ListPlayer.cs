@@ -7,7 +7,7 @@ using RCAudioPlayer.Core.Playables;
 
 namespace RCAudioPlayer.Core.Players
 {
-    public abstract class ListPlayer : ElementPlayer
+	public abstract class ListPlayer : ElementPlayer
 	{
 		public class ListUpdatedArgs<TPlayable> where TPlayable : IPlayable
 		{
@@ -192,7 +192,7 @@ namespace RCAudioPlayer.Core.Players
 		}
 
 		protected void SkipTrack(int step)
-        {
+		{
 			var originalPos = QueuePosition;
 			do
 			{
@@ -250,7 +250,7 @@ namespace RCAudioPlayer.Core.Players
 
 		public virtual IAsyncEnumerable<IPlayable> Add(string str)
 		{
-            return Insert(new string[] { str }, _playlist.Count);
+			return Insert(new string[] { str }, _playlist.Count);
 		}
 		public virtual IAsyncEnumerable<IPlayable> Add(IEnumerable<string> strs)
 		{
@@ -270,16 +270,16 @@ namespace RCAudioPlayer.Core.Players
 		public virtual IAsyncEnumerable<IPlayable> Insert(IEnumerable<string> strs, int position)
 		{
 			async Task<IPlayable> CreateFunc(string str)
-            {
+			{
 				try
-                {
+				{
 					return await Create(str);
-                }
+				}
 				catch (Exception exc)
-                {
+				{
 					return new ErrorPlayable(str, exc);
-                }
-            }
+				}
+			}
 
 			return Insert(strs.Select(CreateFunc).ToList(), position);
 		}
@@ -340,7 +340,7 @@ namespace RCAudioPlayer.Core.Players
 		}
 
 		public List<TPlayable> SafeCast()
-        {
+		{
 			List<TPlayable> list = new List<TPlayable>();
 
 			foreach (var playable in _playlist)
@@ -348,7 +348,7 @@ namespace RCAudioPlayer.Core.Players
 					list.Add(_playable);
 
 			return list;
-        }
+		}
 
 		public async Task Play(TPlayable playable)
 		{

@@ -166,12 +166,12 @@ namespace RCAudioPlayer.Core.Pipeline
 			Clear();
 		}
 
-        public override void ClearState()
-        {
+		public override void ClearState()
+		{
 			_samples.Clear();
 		}
 
-        public override void UpdateFormat(WaveFormat format)
+		public override void UpdateFormat(WaveFormat format)
 		{
 			foreach (var effect in Effects)
 				effect.UpdateWith(format);
@@ -214,9 +214,9 @@ namespace RCAudioPlayer.Core.Pipeline
 								effect.Enabled = deserializedEffect.enabled;
 								effect.CustomPreset = deserializedEffect.customPreset;
 								try
-                                {
-                                    effectData.Presets.Select(effect, deserializedEffect.presetName, effectData.Attribute.DefaultPreset);
-                                }
+								{
+									effectData.Presets.Select(effect, deserializedEffect.presetName, effectData.Attribute.DefaultPreset);
+								}
 								catch { }
 								_effects.Add(effect);
 							}

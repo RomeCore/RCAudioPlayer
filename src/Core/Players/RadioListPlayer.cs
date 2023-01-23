@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace RCAudioPlayer.Core.Players
 {
-    [Player("radio_list")]
+	[Player("radio_list")]
 	public class RadioListPlayer : ListPlayer<Radio>
 	{
 		public RadioListPlayer(PlayerMaster master, string name) : base(master, name)

@@ -10,7 +10,7 @@
 		{
 			Min = min;
 			Max = max;
-            TickFrequency = tickFq;
+			TickFrequency = tickFq;
 		}
 	}
 }

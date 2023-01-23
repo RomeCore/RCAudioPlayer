@@ -50,7 +50,7 @@ namespace RCAudioPlayer.Core.Pipeline
 		static public PipelineElement? Create(string id)
 		{
 			if (Types.TryGetValue(id, out var data))
-            {
+			{
 				var element = (PipelineElement)data.Constructor.Invoke(null);
 				element.Enabled = true;
 				return element;
@@ -118,8 +118,8 @@ namespace RCAudioPlayer.Core.Pipeline
 					dataList.Add(data);
 				}
 				catch
-                {
-                }
+				{
+				}
 			}
 
 			var content = JsonConvert.SerializeObject(dataList, Formatting.Indented);

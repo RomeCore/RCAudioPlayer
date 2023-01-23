@@ -7,7 +7,7 @@ using RCAudioPlayer.Core.Streams;
 
 namespace RCAudioPlayer.Core.Players
 {
-    public abstract class ElementPlayer : Player
+	public abstract class ElementPlayer : Player
 	{
 		public class UpdateArgs<TPlayable> where TPlayable : IPlayable
 		{

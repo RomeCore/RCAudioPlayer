@@ -24,20 +24,20 @@ namespace RCAudioPlayer.Core
 
 		static public V? Get<K, V>(this IDictionary<K, V> dict, K key) where K : notnull
 			where V : class
-        {
+		{
 			if (dict.TryGetValue(key, out V? value))
 				return value;
 			return null;
 		}
 
 		static public void Skip<T>(this IEnumerable<T> enumerable)
-        {
+		{
 			foreach (var _ in enumerable);
-        }
+		}
 
 		static public async System.Threading.Tasks.Task Skip<T>(this IAsyncEnumerable<T> enumerable)
-        {
+		{
 			await foreach (var _ in enumerable);
-        }
+		}
 	}
 }

@@ -32,9 +32,9 @@ namespace RCAudioPlayer.Core.Effects
 		public ReverbEffect()
 		{
 			_allPassFilters = new AllPassFilter[MaxChannels, MaxAllPassFilters];
-            _combFilters = new CombFeedbackFilter[MaxChannels, MaxCombFilters];
+			_combFilters = new CombFeedbackFilter[MaxChannels, MaxCombFilters];
 
-            for (int i = 0; i < MaxAllPassFilters; i++)
+			for (int i = 0; i < MaxAllPassFilters; i++)
 				for (int c = 0; c < MaxChannels; c++)
 					_allPassFilters[c, i] = new AllPassFilter(100.0 / Math.Pow(3, i), Mix);
 
@@ -49,16 +49,16 @@ namespace RCAudioPlayer.Core.Effects
 			double totaldamp = DampScale * Damp;
 
 			double sampleRate = Format?.SampleRate ?? 44100;
-            for (int i = 0; i < AllPassFiltersCount; i++)
-                for (int c = 0; c < (Format?.Channels ?? MaxChannels); c++)
-                    _allPassFilters[c, i].Change(100.0 / Math.Pow(3, i) / sampleRate, Mix);
+			for (int i = 0; i < AllPassFiltersCount; i++)
+				for (int c = 0; c < (Format?.Channels ?? MaxChannels); c++)
+					_allPassFilters[c, i].Change(100.0 / Math.Pow(3, i) / sampleRate, Mix);
 
 			for (int i = 0; i < CombFiltersCount; i++)
 			{
 				var factor = DampOffset + totaldamp * (0.8 - Decay * i);
-                for (int c = 0; c < (Format?.Channels ?? MaxChannels); c++)
-                    _combFilters[c, i].Change(totalRoomsize, factor);
-            }
+				for (int c = 0; c < (Format?.Channels ?? MaxChannels); c++)
+					_combFilters[c, i].Change(totalRoomsize, factor);
+			}
 
 			base.Update();
 		}

@@ -13,5 +13,5 @@ namespace RCAudioPlayer.Core.Data
 		where E : IAudioData
 	{
 		public new List<E> List { get; }
-    }
+	}
 }

@@ -25,12 +25,12 @@ namespace RCAudioPlayer.Core.Streams
 
 			_enumerator = _sourcesStarts.GetEnumerator();
 			_enumerator.MoveNext();
-            var secondEnumerator = _sourcesStarts.GetEnumerator();
+			var secondEnumerator = _sourcesStarts.GetEnumerator();
 			while (_enumerator.Current.Key <= _position && secondEnumerator.Current.Key > Position)
 			{
 				secondEnumerator.MoveNext();
-                if (!_enumerator.MoveNext())
-                    break;
+				if (!_enumerator.MoveNext())
+					break;
 			}
 			_enumerator.Current.Value.Position = _position - _enumerator.Current.Key;
 		}
@@ -68,9 +68,9 @@ namespace RCAudioPlayer.Core.Streams
 		public override long Position { get => _position; set => Seek(value, SeekOrigin.Begin); }
 
 		public CombinedStream(IReadOnlyList<Stream>? sources = null)
-        {
-            _sourcesStarts = new Dictionary<long, Stream>();
-            _sources = Sources = sources ?? new List<Stream>().AsReadOnly();
+		{
+			_sourcesStarts = new Dictionary<long, Stream>();
+			_sources = Sources = sources ?? new List<Stream>().AsReadOnly();
 		}
 
 		public override void Flush()
@@ -124,8 +124,8 @@ namespace RCAudioPlayer.Core.Streams
 			while (read < count)
 			{
 				int _read = 0;
-                var current = _enumerator.Current.Value;
-                try
+				var current = _enumerator.Current.Value;
+				try
 				{
 					current.Position = _position - _enumerator.Current.Key;
 					_read = current.Read(buffer, offset + read, count - read);
@@ -154,24 +154,24 @@ namespace RCAudioPlayer.Core.Streams
 			while (written < count)
 			{
 				int _written = 0;
-                var current = _enumerator.Current.Value;
-                try
+				var current = _enumerator.Current.Value;
+				try
 				{
-                    long posBefore = current.Position = _position - _enumerator.Current.Key;
-                    current.Write(buffer, offset + written, count - written);
-                    _written = (int)(current.Position - posBefore);
-                    written += _written;
+					long posBefore = current.Position = _position - _enumerator.Current.Key;
+					current.Write(buffer, offset + written, count - written);
+					_written = (int)(current.Position - posBefore);
+					written += _written;
 					_position += _written;
 				}
 				catch (EndOfStreamException) { }
 
-                if (_written == 0)
-                {
-                    current.Position = current.Length;
-                    if (!_enumerator.MoveNext())
-                        break;
-                }
-            }
+				if (_written == 0)
+				{
+					current.Position = current.Length;
+					if (!_enumerator.MoveNext())
+						break;
+				}
+			}
 		}
 	}
 }

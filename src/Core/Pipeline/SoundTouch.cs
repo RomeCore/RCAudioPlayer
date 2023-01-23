@@ -140,16 +140,16 @@ namespace RCAudioPlayer.Core.Pipeline
 
 		public override void ClearState() => Clear();
 		public override void Flush()
-        {
+		{
 			lock (SyncLock)
 			{
 				if (!IsFlushed)
-                {
-                    _processor.Flush();
-                    IsFlushed = true;
-                }
+				{
+					_processor.Flush();
+					IsFlushed = true;
+				}
 			}
-        }
+		}
 
 		public override void UpdateFormat(WaveFormat format)
 		{
@@ -160,7 +160,7 @@ namespace RCAudioPlayer.Core.Pipeline
 		protected override void Put(Span<float> samples)
 		{
 			_processor.PutSamples(samples, samples.Length / _channels);
-        }
+		}
 
 		protected override Span<float> Get(int count)
 		{

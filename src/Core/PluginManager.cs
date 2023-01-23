@@ -23,12 +23,12 @@ namespace RCAudioPlayer.Core
 			AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 
 			assemblyFiles = new Dictionary<string, string>();
-            foreach (var filename in Directory.EnumerateFiles(DependenciesFolder, "*.dll"))
+			foreach (var filename in Directory.EnumerateFiles(DependenciesFolder, "*.dll"))
 				LoadAssembly(filename);
 
 			assemblies = new List<Assembly>();
 			assemblies.AddRange(AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName?.StartsWith("RCAudioPlayer") ?? false));
-            foreach (var filename in Directory.EnumerateFiles(Folder, "*.dll"))
+			foreach (var filename in Directory.EnumerateFiles(Folder, "*.dll"))
 			{
 				var assembly = LoadAssembly(filename);
 				if (assembly != null)

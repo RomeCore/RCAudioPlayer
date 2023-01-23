@@ -23,7 +23,7 @@ namespace RCAudioPlayer.Core.Data
 			var fileData = NetClient.GetString(uri);
 			var currentData = new Dictionary<string, object>();
 			foreach (var line in fileData.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries))
-            {
+			{
 				if (!string.IsNullOrEmpty(line))
 				{
 					// Line contains uri information, put all extracted metadata to new element and add it to the end

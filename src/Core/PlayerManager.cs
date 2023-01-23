@@ -108,9 +108,9 @@ namespace RCAudioPlayer.Core
 					reader.Close();
 					return player;
 				}
-            }
-            reader.Close();
-            return null;
+			}
+			reader.Close();
+			return null;
 		}
 
 		static PlayerManager()
@@ -130,14 +130,14 @@ namespace RCAudioPlayer.Core
 			foreach (var file in Directory.EnumerateFiles(Folder, FilenamePattern))
 			{
 				try
-                {
-                    playerFiles.Add(GetName(file), new PlayerData(file));
-                }
+				{
+					playerFiles.Add(GetName(file), new PlayerData(file));
+				}
 				catch (Exception exc)
 				{
 					Log.Exception(exc, "while loading player data");
 				}
-            }
+			}
 		}
 
 		public PlayerMaster Master { get; }
@@ -154,9 +154,9 @@ namespace RCAudioPlayer.Core
 		}
 
 		public void Dispose()
-        {
-            Unload();
-            Master.Dispose();
+		{
+			Unload();
+			Master.Dispose();
 		}
 
 		public async Task<bool> Load(string playerName)
@@ -166,12 +166,12 @@ namespace RCAudioPlayer.Core
 			{
 				var player = await Create(playerName);
 				if (player != null)
-                {
-                    Current = player;
-                    CurrentName = playerName;
-                    OnChanged(this, new ChangedArgs(data, Current));
-                    return true;
-                }
+				{
+					Current = player;
+					CurrentName = playerName;
+					OnChanged(this, new ChangedArgs(data, Current));
+					return true;
+				}
 			}
 			return false;
 		}
@@ -187,7 +187,7 @@ namespace RCAudioPlayer.Core
 				var currentType = Current.GetType();
 				var playerType = Types.First(s => s.Value.Type == currentType);
 
-                writer.WriteLine(playerType.Value.Attribute.TypeName);
+				writer.WriteLine(playerType.Value.Attribute.TypeName);
 				Current.Save(writer);
 				writer.Close();
 			}
@@ -250,19 +250,19 @@ namespace RCAudioPlayer.Core
 		}
 
 		public string ExtractContent(string name)
-        {
+		{
 			var filename = GetFilename(name);
 			var reader = new StreamReader(filename);
 			var line = reader.ReadLine();
 			if (line != null)
-            {
+			{
 				var content = reader.ReadToEnd();
 				reader.Close();
 				return content;
 			}
 			reader.Close();
 			return string.Empty;
-        }
+		}
 
 		public void ChangeContent(string name, string content)
 		{
@@ -272,7 +272,7 @@ namespace RCAudioPlayer.Core
 			var className = reader.ReadLine();
 			reader.Close();
 			if (className != null)
-            {
+			{
 				var writer = new StreamWriter(filename);
 				writer.WriteLine(className);
 				writer.Write(content);
