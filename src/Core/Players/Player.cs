@@ -9,7 +9,7 @@ namespace RCAudioPlayer.Core.Players
 		public PlayerMaster Master { get; }
 		public virtual string Name { get; set; }
 
-        public Player(PlayerMaster master, string name)
+		public Player(PlayerMaster master, string name)
 		{
 			Master = master;
 			Name = name;
